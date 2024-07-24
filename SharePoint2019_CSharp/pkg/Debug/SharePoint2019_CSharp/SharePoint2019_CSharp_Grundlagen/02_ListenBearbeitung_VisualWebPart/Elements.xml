@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
-  <Module Name="02_ListenBearbeitung_VisualWebPart" List="113" Url="_catalogs/wp">
-    <File Path="02_ListenBearbeitung_VisualWebPart\ListenBearbeitung_VisualWebPart.webpart" Url="SharePoint2019_CSharp_ListenBearbeitung_VisualWebPart.webpart" Type="GhostableInLibrary" >
-      <Property Name="Group" Value="Custom" />
-    </File>
-  </Module>
-</Elements>
