@@ -178,3 +178,7 @@ nCrunchTemp_*
 *.snupkg
 packages/
 .nuget/
+
+
+*DocumentLayout.json
+*.wsuo
