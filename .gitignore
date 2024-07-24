@@ -128,3 +128,53 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# OS-specific files
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Resharper
+*.DotSettings
+*.DotSettings.user
+
+# NCrunch
+*.ncrunch*
+nCrunchTemp_*
+*.local.xml
+
+# Team Foundation Server
+.tfignore
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
