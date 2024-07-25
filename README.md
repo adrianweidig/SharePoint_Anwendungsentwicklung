@@ -1,4 +1,37 @@
-# Anleitung zur Einrichtung einer SharePoint 2019 Visual Studio Entwicklungsumgebung
+# Anwendungsentwicklung mit SharePoint 2019 (OnPremise und Online)
+
+## Vergleich: SharePoint 2019 On-Premise vs. SharePoint Online
+
+| **Inhalte / Themen**                                                            | **SharePoint 2019 On-Premise**                  | **SharePoint Online**                            |
+|----------------------------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| **Vorstellung der Anwendungsgrundsätze für SharePoint 2019**                     | ✔️                                              | ✔️                                              |
+| **Überblick über SharePoint APIs (REST/OData und CSOM/JASOM)**                    | ✔️ (REST/OData, CSOM)                           | ✔️ (REST/OData, CSOM)                           |
+| **JavaScript Bibliotheken und Frameworks als Entwicklungsgrundlage**             | ✔️                                              | ✔️                                              |
+| **Verwendung SharePoint Frameworks (SPFx) im Überblick**                          | ❌ (Nicht unterstützt)                         | ✔️                                              |
+| **Umgang und Entwicklung mit Visual Studio oder ähnlicher Technologien**          | ✔️                                              | ✔️                                              |
+| **Anpassung des Funktionsumfangs der SharePoint Umgebung über JavaScript Injektionen** | ✔️                                              | ✔️                                              |
+| **Datenabfragen mit den unterschiedlichen Modellen**                              | ✔️ (REST/OData, CSOM)                           | ✔️ (REST/OData, CSOM)                           |
+| **SharePoint Apps entwickeln und bereitstellen**                                 | ✔️                                              | ✔️                                              |
+| **Webparts entwickeln und bereitstellen**                                        | ✔️                                              | ✔️                                              |
+| **Workflows entwickeln und einbinden**                                           | ✔️ (SharePoint Designer, Visual Studio)         | ✔️ (Power Automate, Visual Studio)              |
+
+**Legende:**
+- ✔️: Unterstützt
+- ❌: Nicht unterstützt
+
+**Wichtige Aspekte:**
+
+- **SharePoint Framework (SPFx)**: SPFx ist offiziell nicht unterstützt in SharePoint 2019 On-Premise. Jedoch ist es möglich, SPFx-Komponenten mit **PnPjs** zu integrieren, was zusätzliche Konfigurationen und Anpassungen erfordert. Die Verwendung von SPFx in On-Premise-Umgebungen kann technische Herausforderungen mit sich bringen.
+
+- **PnPjs**: Mit **PnPjs** können SPFx-Webparts in SharePoint 2019 On-Premise verwendet werden. Es wird empfohlen, diese Bibliothek für die Interaktion mit SharePoint-Daten zu nutzen. Weitere Informationen finden Sie in den folgenden Ressourcen:
+   - [Guidance for using PnPjs with SPFx Web Parts](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/guidance/use-sp-pnp-js-with-spfx-web-parts)
+   - [PnPjs für SPFx On-Premises](https://pnp.github.io/pnpjs/SPFx-on-premises/)
+   - [Getting Started with PnPjs](https://pnp.github.io/pnpjs/getting-started/#getting-started-with-sharepoint-framework)
+
+
+---
+
+## Anleitung zur Einrichtung einer SharePoint 2019 Visual Studio Entwicklungsumgebung
 
 ## Voraussetzungen
 
@@ -8,64 +41,66 @@
 ## Verbindung mit Visual Studio und Erzeugung eines leeren SharePoint 2019 Projekts
 
 1. **Visual Studio als Administrator starten:**
-    - Rechtsklick auf das Visual Studio Symbol und "Als Administrator ausführen" wählen.
+   - Rechtsklick auf das Visual Studio Symbol und "Als Administrator ausführen" wählen.
 
 2. **Neues Projekt erstellen:**
-    - Datei > Neues Projekt > SharePoint-Lösungen > SharePoint 2019 leeres Projekt (C#) auswählen.
-    - Einen Namen und Speicherort für das Projekt festlegen und auf "Erstellen" klicken.
+   - Datei > Neues Projekt > SharePoint-Lösungen > SharePoint 2019 leeres Projekt (C#) auswählen.
+   - Einen Namen und Speicherort für das Projekt festlegen und auf "Erstellen" klicken.
 
 3. **SharePoint Verbindungsoptionen:**
-    - Die URL Ihrer SharePoint Entwicklerseite eingeben. Falls noch keine Entwicklerseite existiert, erstellen Sie eine neue Websitesammlung mit einer Entwicklerwebseite als Template.
-    - "OK" klicken und das Projekt wird erstellt.
+   - Die URL Ihrer SharePoint Entwicklerseite eingeben. Falls noch keine Entwicklerseite existiert, erstellen Sie eine neue Websitesammlung mit einer Entwicklerwebseite als Template.
+   - "OK" klicken und das Projekt wird erstellt.
 
-## Erstellen und Debuggen einer SharePoint App / Features via Visual Studio
+## Erstellen und Debuggen einer SharePoint App (AddIn genannt) / WebPart / Features via Visual Studio
 
 1. **Leeres SharePoint Projekt erstellen:**
-    - In Visual Studio: Datei > Neues Projekt > SharePoint-Lösungen > SharePoint 2019 leeres Projekt (C#)
+   - In Visual Studio: Datei > Neues Projekt > SharePoint-Lösungen > SharePoint 2019 leeres Projekt (C#)
 
 2. **Ordnerstruktur im Projekt:**
-    - Erstellen Sie ggf. einen neuen Ordner im Projektmappen-Explorer, um Ihre Elemente zu organisieren.
-    - Rechtsklick auf den Projektnamen > Hinzufügen > Neuer Ordner.
+   - Erstellen Sie ggf. einen neuen Ordner im Projektmappen-Explorer, um Ihre Elemente zu organisieren.
+   - Rechtsklick auf den Projektnamen > Hinzufügen > Neuer Ordner.
 
 3. **Webpart hinzufügen:**
-    - Rechtsklick auf den neu erstellten Ordner > Hinzufügen > Neues Element > Webpart auswählen (nur Webpart).
-    - Falls "Visual Webpart" gewählt wird, wird eine HTML / ASCX Datei für die Oberfläche erstellt.
+   - Rechtsklick auf den neu erstellten Ordner > Hinzufügen > Neues Element > Webpart auswählen (nur Webpart).
+   - Falls "Visual Webpart" gewählt wird, wird eine HTML / ASCX Datei für die Oberfläche erstellt.
 
 4. **Feature hinzufügen:**
-    - Rechtsklick auf den Ordner "Features" > Hinzufügen > Neue Funktion.
-    - In der Feature-Ansicht (Doppelklick auf das Feature) können Sie die Elemente aus der Projektmappe zum Feature hinzufügen.
-    - **Wichtig:** Damit die aktuellen WebParts ersichtlich sind, muss beim Feature als Bereich "Site" ausgewählt werden (da WebParts hier ansässig sind).
+   - Rechtsklick auf den Ordner "Features" > Hinzufügen > Neue Funktion.
+   - In der Feature-Ansicht (Doppelklick auf das Feature) können Sie die Elemente aus der Projektmappe zum Feature hinzufügen.
+   - **Wichtig:** Damit die aktuellen WebParts ersichtlich sind, muss beim Feature als Bereich "Site" ausgewählt werden (da WebParts hier ansässig sind).
 
 ## Visual Webpart Designer Ansicht
 
 1. **Ansicht öffnen:**
-    - Klicken Sie auf "Ansicht" > "Toolbox", um die Toolbox zu öffnen.
+   - Klicken Sie auf "Ansicht" > "Toolbox", um die Toolbox zu öffnen.
 
 2. **Designer-Modus aktivieren:**
-    - Rechtsklick auf die .ascx Datei des Visual Webparts und "Ansicht-Designer" auswählen.
-    - Dies ermöglicht eine grafische Bearbeitung und das Hinzufügen von Elementen aus der Toolbox per Drag & Drop.
+   - Rechtsklick auf die .ascx Datei des Visual Webparts und "Ansicht-Designer" auswählen.
+   - Dies ermöglicht eine grafische Bearbeitung und das Hinzufügen von Elementen aus der Toolbox per Drag & Drop.
 
 3. **Toolbox verwenden:**
-    - Ziehen Sie die gewünschten Elemente aus der Toolbox in den Designer und ordnen Sie diese nach Bedarf an.
+   - Ziehen Sie die gewünschten Elemente aus der Toolbox in den Designer und ordnen Sie diese nach Bedarf an.
 
 ## Bereitstellung und Debugging
 
 1. **Projekt bereitstellen:**
-    - Rechtsklick auf das Projekt im Projektmappen-Explorer > Bereitstellen > Lösung bereitstellen.
-    - oder einfach über den "Play" Button das Projekt starten
-    - Visual Studio wird das Projekt kompilieren und auf den SharePoint Server hochladen.
+   - Rechtsklick auf das Projekt im Projektmappen-Explorer > Bereitstellen > Lösung bereitstellen.
+   - oder einfach über den "Play" Button das Projekt starten.
+   - Visual Studio wird das Projekt kompilieren und auf den SharePoint Server hochladen.
 
 2. **Debugging:**
-    - Setzen Sie Breakpoints in Ihrem Code.
-    - Starten Sie das Debugging durch Drücken von F5.
-    - Visual Studio wird das Projekt auf SharePoint bereitstellen und die Debugging-Sitzung starten.
+   - Setzen Sie Breakpoints in Ihrem Code.
+   - Starten Sie das Debugging durch Drücken von F5.
+   - Visual Studio wird das Projekt auf SharePoint bereitstellen und die Debugging-Sitzung starten.
 
 3. **Testen:**
-    - Navigieren Sie zur SharePoint Seite und testen Sie das neue Webpart oder Feature.
-    - Dazu Seite bearbeiten > Einfügen > WebPart > Custom
-    - Sobald es über Visual Studio bereitgestellt ist kann auch von extern mit entsprechenden Zugriffsrechten auf der Entwicklerseite auf die WebParts zugegriffen werden.
+   - Navigieren Sie zur SharePoint Seite und testen Sie das neue Webpart oder Feature.
+   - Dazu: Seite bearbeiten > Einfügen > WebPart > Custom.
+   - Sobald es über Visual Studio bereitgestellt ist, kann auch von extern mit entsprechenden Zugriffsrechten auf der Entwicklerseite auf die WebParts zugegriffen werden.
 
-    - ACHTUNG: Es kann vorkommen, dass der Fehler kommt "... wird bereits von einem anderen Prozess verwendet" sobald man den Debugger startet. In diesem Fall das Fenster schließen bzw. das Projekt stoppen und neu starten. (Kann auch mehrmals hintereinander passieren)
+   - **Achtung:** Es kann vorkommen, dass der Fehler "... wird bereits von einem anderen Prozess verwendet" erscheint, sobald man den Debugger startet. In diesem Fall das Fenster schließen bzw. das Projekt stoppen und neu starten. (Kann auch mehrmals hintereinander passieren)
+
+---
 
 ## Tipps und Tricks
 
@@ -77,10 +112,8 @@
 
 - **Namenskonflikte lösen:** Die `.ascx.g.cs` Datei benennt die Klassen meist falsch und hängt `...UserControls` an den Klassennamen an, wodurch die Dateien nicht mehr gefunden werden können. Dies muss in der `.ascx.g.cs` Datei auf den Namen der `.cs` Datei geändert werden. (Kurz: Namenskonflikte auflösen, damit `InitializeControl` gefunden werden kann.)
 
-
 ## Weiterführende Ressourcen
 
 - [Microsoft SharePoint Dokumentation](https://docs.microsoft.com/de-de/sharepoint/dev/)
 - [Visual Studio SharePoint Entwicklung](https://docs.microsoft.com/de-de/visualstudio/sharepoint/sharepoint-development-in-visual-studio)
 - [SharePoint 2019 Entwicklungsguide](https://docs.microsoft.com/de-de/sharepoint/dev/general-development/sharepoint-2019-development-platform)
-
