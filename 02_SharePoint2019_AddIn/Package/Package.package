@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="420bfe6c-8f89-4e07-889f-c912d2a35ba7" 
+        solutionId="420bfe6c-8f89-4e07-889f-c912d2a35ba7" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="_02_SharePoint2019_AddIn"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="ae1bbef2-c5e9-41e4-8789-c0c8e03888bb" />
+  </features>
+</package>
