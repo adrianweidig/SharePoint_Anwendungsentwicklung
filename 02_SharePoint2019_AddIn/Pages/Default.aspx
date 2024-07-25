@@ -9,7 +9,11 @@
 <%-- Markup und Skript im folgenden Content-Element werden im <head> der Seite platziert. --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script type="text/javascript" src="../Scripts/jquery-3.6.0.min.js"></script>
-    <SharePoint:ScriptLink name="sp.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" />
+    <%-- <SharePoint:ScriptLink name="sp.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" /> --%>
+
+    <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.js"></script>
+
     <meta name="WebPartPageExpansion" content="full" />
 
     <!-- Fügen Sie Ihre CSS-Formatvorlagen der folgenden Datei hinzu. -->
