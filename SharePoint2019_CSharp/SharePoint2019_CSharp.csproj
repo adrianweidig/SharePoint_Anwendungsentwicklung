@@ -60,6 +60,11 @@
       <DependentUpon>ListenBearbeitung_VisualWebPart.ascx</DependentUpon>
     </Compile>
     <Compile Include="01_Grundlagen\01_Rechner_WebPart\Rechner_WebPart.cs" />
+    <Compile Include="01_Grundlagen\02_ListenBearbeitung_VisualWebPart\ListenBearbeitung_VisualWebPart.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListenBearbeitung_VisualWebPart.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,7 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%-- Registriert die SharePoint-Webpartseiten mit dem Tagprefix "WebPartPages". --%>
 
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ListenBearbeitung_VisualWebPart.ascx.cs" Inherits="SharePoint2019_CSharp._01_Grundlagen.ListenBearbeitung_VisualWebPart.ListenBearbeitung_VisualWebPart" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ListenBearbeitung_VisualWebPart.ascx.cs" Inherits="SharePoint2019_CSharp._01_Grundlagen.ListenBearbeitung_VisualWebPart.ListenBearbeitung_VisualWebPartUserControl" %>
 <%--
   Definiert das benutzerdefinierte Steuerelement. 
   Language="C#" gibt die verwendete Programmiersprache an. 
@@ -28,19 +28,13 @@
   Inherits legt die Klasse fest, von der dieses Steuerelement erbt.
 --%>
 
-<%-- Definiert das GridView, in dem die Mitarbeiterinformationen angezeigt werden --%>
 <asp:GridView ID="EmployeeGridView" runat="server" AutoGenerateColumns="False">
-    <%-- id legt die eindeutige Kennung des Steuerelements fest. 
-         runat="server" gibt an, dass dieses Steuerelement auf dem Server ausgeführt wird.
-         AutoGenerateColumns="False" gibt an, dass die Spalten manuell definiert werden. --%>
     <Columns>
-        <%-- Definiert die Spalten des GridView --%>
         <asp:BoundField DataField="Name" HeaderText="Name" />
-        <%-- BoundField bindet eine Spalte an ein Datenfeld in der Datenquelle.
-             DataField gibt das Feld in der Datenquelle an.
-             HeaderText legt den Text fest, der im Header der Spalte angezeigt wird. --%>
         <asp:BoundField DataField="Position" HeaderText="Position" />
         <asp:BoundField DataField="Department" HeaderText="Department" />
         <asp:BoundField DataField="Email" HeaderText="Email" />
     </Columns>
 </asp:GridView>
+
+<asp:Button ID="AddEmployeeButton" runat="server" Text="Mitarbeiter hinzufügen" OnClick="AddEmployeeButton_Click" CssClass="ms-Button" />
