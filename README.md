@@ -37,6 +37,105 @@
 
 ---
 
+## Erstellen und Debuggen von SPFx / SharePoint Framework mit JavaScript
+
+### Vorbereitung der IDE für die SPFx-Entwicklung
+
+1. **Visual Studio Code installieren (bzw. irgendeine IDE):**
+   - Laden Sie Visual Studio Code von der offiziellen Website herunter: [Visual Studio Code](https://code.visualstudio.com/).
+   - Installieren Sie Visual Studio Code auf Ihrem System.
+
+2. **Node.js und npm installieren:**
+   - Laden Sie die neueste LTS-Version von Node.js von der offiziellen Website herunter: [Node.js](https://nodejs.org/).
+   - Installieren Sie Node.js, das automatisch auch npm (Node Package Manager) installiert.
+
+3. **Yeoman und Gulp global installieren:**
+   - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
+   - Führen Sie den folgenden Befehl aus, um Yeoman und Gulp global zu installieren:
+     ```bash
+     npm install -g yo gulp
+     ```
+
+4. **SharePoint Framework Yeoman Generator installieren:**
+   - Führen Sie den folgenden Befehl aus, um den SharePoint Framework Yeoman Generator global zu installieren:
+     ```bash
+     npm install -g @microsoft/generator-sharepoint
+     ```
+
+5. **Visual Studio Code Erweiterungen installieren:**
+   - Öffnen Sie Visual Studio Code.
+   - Installieren Sie die folgenden empfohlenen Erweiterungen:
+     - **ESLint:** Sucht nach Fehlern in Ihrem JavaScript-Code.
+     - **Prettier - Code formatter:** Formatiert Ihren Code automatisch.
+     - **SPFx Snippets:** Bietet nützliche Code-Snippets für SPFx.
+     - **npm:** Unterstützt die Arbeit mit npm-Paketen.
+     - **Debugger for Chrome:** Ermöglicht das Debuggen von JavaScript-Code in Google Chrome.
+
+### Erstellen eines neuen SPFx-Projekts
+
+1. **Erstellen eines Projektverzeichnisses:**
+   - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
+   - Erstellen Sie ein neues Verzeichnis und navigieren Sie in dieses:
+     ```bash
+     mkdir spfx-webpart
+     cd spfx-webpart
+     ```
+
+2. **Yeoman Generator ausführen:**
+   - Führen Sie den SharePoint Framework Yeoman Generator aus:
+     ```bash
+     yo @microsoft/sharepoint
+     ```
+   - Beantworten Sie die folgenden Fragen des Generators:
+     - **SharePoint Online only (latest):** Ja
+     - **WebPart Name:** Geben Sie den Namen Ihres Webparts ein.
+     - **WebPart Description:** Geben Sie eine Beschreibung für Ihr Webpart ein.
+     - **Framework to use:** No JavaScript framework (oder wählen Sie ein Framework Ihrer Wahl, wie React oder Angular).
+
+3. **Projektabhängigkeiten installieren:**
+   - Nachdem der Generator abgeschlossen ist, installieren Sie die Projektabhängigkeiten:
+     ```bash
+     npm install
+     ```
+
+### Entwickeln eines SPFx Webparts
+
+1. **Starten der Entwicklungsumgebung:**
+   - Starten Sie die lokale Entwicklungsumgebung:
+     ```bash
+     gulp serve
+     ```
+   - Dies öffnet ein neues Browserfenster mit der SharePoint Workbench, wo Sie Ihr Webpart in Echtzeit testen können.
+
+2. **Bearbeiten des Webparts:**
+   - Öffnen Sie Visual Studio Code und laden Sie Ihr Projektverzeichnis.
+   - Bearbeiten Sie die Datei `src/webparts/[IhrWebPart]/[IhrWebPart].ts` und passen Sie das Webpart nach Ihren Anforderungen an.
+
+3. **Verwenden von Umgebungsvariablen:**
+   - Erstellen Sie eine `.env`-Datei im Stammverzeichnis Ihres Projekts, um Umgebungsvariablen zu verwalten.
+   - Beispiel für den Inhalt der `.env`-Datei:
+     ```env
+     REACT_APP_API_URL=https://api.example.com
+     ```
+
+### Debuggen und Bereitstellen des SPFx Webparts
+
+1. **Debuggen in Visual Studio Code:**
+   - Setzen Sie Breakpoints in Ihrem Code.
+   - Verwenden Sie die "Debugger for Chrome" Erweiterung, um Ihren Code in Google Chrome zu debuggen.
+   - Konfigurieren Sie die Debugger-Einstellungen in der Datei `.vscode/launch.json`.
+
+2. **Build und Bereitstellung:**
+   - Erstellen Sie eine Produktionsversion Ihres Webparts:
+     ```bash
+     gulp bundle --ship
+     gulp package-solution --ship
+     ```
+   - Laden Sie das generierte `.sppkg`-Paket aus dem `sharepoint/solution`-Ordner in den App-Katalog Ihrer SharePoint-Umgebung hoch.
+   - Aktivieren Sie das Webpart in Ihrer SharePoint-Seite.
+
+---
+
 ## Erstellen und Debuggen einer SharePoint WebPart / Features via Visual Studio
 
 1. **Visual Studio als Administrator starten:**
