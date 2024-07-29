@@ -42,14 +42,21 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Activities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.DesignTime.Activities.16.0, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Activities" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
@@ -76,6 +83,12 @@
     <None Include="01_Grundlagen\01_Rechner_WebPart\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2a0efe86-7266-4ce0-aa3d-46da3103b334}</SharePointProjectItemId>
     </None>
+    <None Include="03_Workflows\01_WorkflowBasics\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c4ec47df-7bee-4ccf-b0c6-8a53a2002e7a}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{602f5f20-ee8d-4501-8de0-ea9f78230a04}</FeatureId>
+    </None>
     <None Include="Features\Grundlagen\Grundlagen.feature">
       <FeatureId>{ec1e849c-00a4-4157-bbc5-997307b36433}</FeatureId>
     </None>
@@ -85,6 +98,12 @@
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="WorkflowHistoryList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{255535f8-25ad-4821-85d9-08acde35e451}</SharePointProjectItemId>
+    </None>
+    <None Include="WorkflowTaskList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{866a69b5-ec15-4c06-b4d3-b80bf5aaa129}</SharePointProjectItemId>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -97,9 +116,21 @@
       <LastGenOutput>ListenBearbeitung_VisualWebPart.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="01_Grundlagen\01_Rechner_WebPart\Elements.xml" />
+    <Content Include="03_Workflows\01_WorkflowBasics\Elements.xml" />
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
     <Content Include="Features\Grundlagen\Grundlagen.Template.xml">
       <DependentUpon>Grundlagen.feature</DependentUpon>
     </Content>
+    <Content Include="WorkflowHistoryList\Elements.xml" />
+    <Content Include="WorkflowTaskList\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamlAppDef Include="03_Workflows\01_WorkflowBasics\Workflow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </XamlAppDef>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -79,7 +79,7 @@
 
 ---
 
-## Workflows erstellen und einbinden
+## Workflows erstellen (Visual Studio 2022) und einbinden
 
 1. **Neues Element hinzufügen:**
    - Rechtsklick auf das Projekt im `Projektmappen-Explorer`.
