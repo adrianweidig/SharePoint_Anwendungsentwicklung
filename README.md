@@ -79,6 +79,36 @@
 
 ---
 
+## Workflows erstellen und einbinden
+
+1. **Neues Element hinzufügen:**
+   - Rechtsklick auf das Projekt im `Projektmappen-Explorer`.
+   - Wählen Sie `Hinzufügen` > `Neues Element` > `Workflow` und geben Sie einen Namen ein.
+   - Wählen Sie `List Workflow` und die entsprechende SharePoint-Liste.
+   - Aktivieren Sie die gewünschten Optionen:
+     - `Workflow nur manuell gestartet`
+     - `Workflow automatisch beim Erstellen eines neuen Elements starten`
+     - `Workflow automatisch bei Änderung eines Elements starten`
+   - Klicken Sie auf `Weiter`.
+
+2. **Workflow-Logik implementieren:**
+   - Doppelklicken Sie auf die Workflow-Datei, um den Designer zu öffnen.
+   - Ziehen Sie Aktivitäten aus der Toolbox in den Designer:
+     - Beispiele: `Send an Email`, `Create List Item`, `Update List Item`
+   - Konfigurieren Sie die Aktivitäten gemäß den Anforderungen.
+
+3. **Workflow-Parameter konfigurieren:**
+   - Rechtsklick auf den Workflow im Designer und `Properties` wählen.
+   - Fügen Sie benötigte Parameter hinzu, z.B. Empfänger-E-Mail-Adressen.
+
+4. **Bereitstellung und Testen:**
+   - Erstellen Sie das Projekt (`Erstellen` > `Projektmappe erstellen`).
+   - Rechtsklick auf das Projekt > `Bereitstellen`.
+   - Aktivieren Sie das Workflow-Feature in SharePoint (`Websiteeinstellungen` > `Websitefeatures`).
+   - Testen Sie den Workflow, indem Sie ihn manuell starten oder auslösende Aktionen durchführen.
+
+---
+
 ## Erstellen und Debuggen einer SharePoint App (Add-In) via Visual Studio
 
 KLARE EMPFEHLUNG: KEINE Addins mehr benutzen. Erstens sie verlieren ihren Support, werden durch die Community fast nicht mehr supportet und ebenfalls sind sie extrem kompliziert zu implementieren mit zusätzlich extrem vielen Fehlerquellen die oftmals das Design zerstören.
