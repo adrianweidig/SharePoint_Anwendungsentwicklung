@@ -81,6 +81,8 @@
 
 ## Erstellen und Debuggen einer SharePoint App (Add-In) via Visual Studio
 
+KLARE EMPFEHLUNG: KEINE Addins mehr benutzen. Erstens sie verlieren ihren Support, werden durch die Community fast nicht mehr supportet und ebenfalls sind sie extrem kompliziert zu implementieren mit zusätzlich extrem vielen Fehlerquellen die oftmals das Design zerstören.
+
 1. **Visual Studio als Administrator starten:**
    - Rechtsklick auf das Visual Studio-Symbol und "Als Administrator ausführen" wählen.
 

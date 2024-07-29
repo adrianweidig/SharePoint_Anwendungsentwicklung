@@ -1,41 +1,35 @@
-﻿<%-- Die folgenden vier Zeilen sind ASP.NET-Direktiven, die bei der Verwendung von SharePoint-Komponenten erforderlich sind. --%>
-
-<%@ Page Inherits="Microsoft.SharePoint.WebPartPages.WebPartPage, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" MasterPageFile="~masterurl/default.master" Language="C#" %>
-
+﻿<%@ Page Inherits="Microsoft.SharePoint.WebPartPages.WebPartPage, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" MasterPageFile="~masterurl/default.master" Language="C#" %>
 <%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 
-<%-- Markup und Skript im folgenden Content-Element werden im <head> der Seite platziert. --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
+    <!-- Einbinden von jQuery, einer JavaScript-Bibliothek, die DOM-Manipulation und Event-Handling vereinfacht -->
     <script type="text/javascript" src="../Scripts/jquery-3.6.0.min.js"></script>
-    <%-- <SharePoint:ScriptLink name="sp.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" /> --%>
-
+    <!-- Einbinden von SharePoint JavaScript-Bibliotheken für SharePoint-spezifische Funktionen -->
     <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
     <script type="text/javascript" src="/_layouts/15/sp.js"></script>
-
-    <meta name="WebPartPageExpansion" content="full" />
-
-    <!-- Fügen Sie Ihre CSS-Formatvorlagen der folgenden Datei hinzu. -->
-    <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
-
-    <!-- Fügen Sie Ihr JavaScript der folgenden Datei hinzu. -->
+    <!-- Einbinden der benutzerdefinierten CSS-Datei -->
+    <link rel="stylesheet" type="text/css" href="../Content/App.css" />
+    <!-- Einbinden der benutzerdefinierten JavaScript-Datei -->
     <script type="text/javascript" src="../Scripts/App.js"></script>
 </asp:Content>
 
-<%-- Das Markup im folgenden Content-Element wird im "TitleArea" der Seite platziert. --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Page Title
+    <!-- Titel der Seite -->
+    <h1>SharePoint Datenanzeige</h1>
 </asp:Content>
 
-<%-- Markup und Skript im folgenden Content-Element werden im <body> der Seite platziert. --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
-
     <div>
-        <p id="message">
-            <!-- Der folgende Inhalt wird durch den Benutzernamen ersetzt, wenn Sie die App ausführen (siehe "App.js"). -->
-            initializing...
-        </p>
+        <h2>Benutzerinformationen</h2>
+        <!-- Bereich zur Anzeige der Benutzerdaten -->
+        <div id="userInfo"></div>
     </div>
 
+    <div>
+        <h2>SharePoint Listeneinträge</h2>
+        <!-- Bereich zur Anzeige der Listeneinträge -->
+        <div id="listItems"></div>
+    </div>
 </asp:Content>

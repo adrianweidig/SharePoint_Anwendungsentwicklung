@@ -1,1 +1,70 @@
-﻿/* Benutzerdefinierte Stile unten platzieren */
+﻿/* Grundlegende Styles für den gesamten Body */
+body {
+    font-family: Arial, sans-serif; /* Setzt die Schriftart für den gesamten Text auf Arial */
+    line-height: 1.6; /* Erhöht den Zeilenabstand für bessere Lesbarkeit */
+    margin: 0; /* Entfernt die Standard-Margin des Browsers */
+    padding: 0; /* Entfernt die Standard-Padding des Browsers */
+    background-color: #f4f4f4; /* Setzt eine helle Hintergrundfarbe für den gesamten Body */
+}
+
+/* Container für Hauptinhalt */
+#content {
+    max-width: 1200px; /* Maximale Breite des Containers */
+    margin: 0 auto; /* Zentriert den Container horizontal */
+    padding: 20px; /* Fügt Padding um den Container herum hinzu */
+    background-color: #fff; /* Setzt den Hintergrund des Containers auf weiß */
+    border-radius: 8px; /* Rundet die Ecken des Containers ab */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Fügt einen leichten Schatten hinzu */
+}
+
+/* Titel der Seite */
+h1 {
+    color: #333; /* Setzt die Farbe des Titels auf ein dunkles Grau */
+    text-align: center; /* Zentriert den Titel */
+    margin-bottom: 20px; /* Fügt unteren Rand hinzu */
+}
+
+/* Sekundäre Titel */
+h2 {
+    color: #444; /* Setzt die Farbe der Untertitel auf etwas heller */
+    border-bottom: 2px solid #e0e0e0; /* Fügt eine untere Border hinzu */
+    padding-bottom: 10px; /* Fügt Padding unterhalb des Untertitels hinzu */
+    margin-bottom: 20px; /* Fügt unteren Rand hinzu */
+}
+
+/* Styles für die Benutzerinformationen */
+#userInfo {
+    padding: 15px; /* Fügt Padding um den Bereich hinzu */
+    border: 1px solid #ddd; /* Fügt eine dünne Border hinzu */
+    border-radius: 4px; /* Rundet die Ecken des Bereichs ab */
+    background-color: #fafafa; /* Setzt den Hintergrund auf eine sehr helle Farbe */
+    margin-bottom: 20px; /* Fügt unteren Rand hinzu */
+}
+
+/* Styles für die Listeneinträge */
+#listItems {
+    padding: 15px; /* Fügt Padding um den Bereich hinzu */
+    border: 1px solid #ddd; /* Fügt eine dünne Border hinzu */
+    border-radius: 4px; /* Rundet die Ecken des Bereichs ab */
+    background-color: #fafafa; /* Setzt den Hintergrund auf eine sehr helle Farbe */
+}
+
+    /* Listeneinträge */
+    #listItems ul {
+        list-style-type: none; /* Entfernt die Standard-Aufzählungszeichen */
+        padding: 0; /* Entfernt das Padding der Liste */
+    }
+
+    #listItems li {
+        background-color: #fff; /* Setzt den Hintergrund jedes Listeneintrags auf weiß */
+        border: 1px solid #ddd; /* Fügt eine dünne Border hinzu */
+        border-radius: 4px; /* Rundet die Ecken jedes Listeneintrags ab */
+        padding: 10px; /* Fügt Padding um jeden Listeneintrag hinzu */
+        margin-bottom: 10px; /* Fügt unteren Rand hinzu */
+    }
+
+/* Styles für die Fehlernachricht */
+#errorMessage {
+    color: #d9534f; /* Setzt die Farbe der Fehlermeldung auf Rot */
+    font-weight: bold; /* Macht die Fehlermeldung fett */
+}
