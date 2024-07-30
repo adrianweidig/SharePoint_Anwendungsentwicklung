@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePoint2019_CSharp", "SharePoint2019_CSharp.csproj", "{A9AF718F-CD69-42BD-BA41-7C3BC4E6DE7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_03CSharpSharePoint", "01_03CSharpSharePoint.csproj", "{A9AF718F-CD69-42BD-BA41-7C3BC4E6DE7B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_SharePoint2019_AddIn", "..\02_SharePoint2019_AddIn\02_SharePoint2019_AddIn.csproj", "{CD19A3C7-04F5-424E-840F-C3054E0E9CE9}"
 EndProject

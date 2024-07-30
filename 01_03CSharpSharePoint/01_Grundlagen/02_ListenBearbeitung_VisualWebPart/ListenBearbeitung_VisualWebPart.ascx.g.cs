@@ -37,7 +37,7 @@ namespace SharePoint2019_CSharp._01_Grundlagen.ListenBearbeitung_VisualWebPart {
     using System.CodeDom.Compiler;
     
     
-    public partial class ListenBearbeitung_VisualWebPart {
+    public partial class ListenBearbeitung_VisualWebPartUserControl {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "17.0.0.0")]
@@ -48,7 +48,7 @@ namespace SharePoint2019_CSharp._01_Grundlagen.ListenBearbeitung_VisualWebPart {
         protected global::System.Web.UI.WebControls.Button AddEmployeeButton;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "17.0.0.0")]
-        public static implicit operator global::System.Web.UI.TemplateControl(ListenBearbeitung_VisualWebPart target) 
+        public static implicit operator global::System.Web.UI.TemplateControl(ListenBearbeitung_VisualWebPartUserControl target) 
         {
             return target == null ? null : target.TemplateControl;
         }
@@ -148,7 +148,7 @@ namespace SharePoint2019_CSharp._01_Grundlagen.ListenBearbeitung_VisualWebPart {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "17.0.0.0")]
-        private void @__BuildControlTree(global::SharePoint2019_CSharp._01_Grundlagen.ListenBearbeitung_VisualWebPart.ListenBearbeitung_VisualWebPart @__ctrl) {
+        private void @__BuildControlTree(global::SharePoint2019_CSharp._01_Grundlagen.ListenBearbeitung_VisualWebPart.ListenBearbeitung_VisualWebPartUserControl @__ctrl) {
             global::System.Web.UI.WebControls.GridView @__ctrl1;
             @__ctrl1 = this.@__BuildControlEmployeeGridView();
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));

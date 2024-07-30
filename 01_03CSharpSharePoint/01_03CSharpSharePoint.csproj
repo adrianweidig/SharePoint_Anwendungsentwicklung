@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharePoint2019_CSharp</RootNamespace>
-    <AssemblyName>SharePoint2019_CSharp</AssemblyName>
+    <AssemblyName>01_03CSharpSharePoint</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetOfficeVersion>19.0</TargetOfficeVersion>
     <FileAlignment>512</FileAlignment>
