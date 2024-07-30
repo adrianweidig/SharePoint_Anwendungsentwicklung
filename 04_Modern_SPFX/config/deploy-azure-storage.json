@@ -2,6 +2,6 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/deploy-azure-storage.schema.json",
   "workingDir": "./temp/deploy/",
   "account": "<!-- STORAGE ACCOUNT NAME -->",
-  "container": "04-sp-fx-share-point-framework",
+  "container": "04-modern-spfx",
   "accessKey": "<!-- ACCESS KEY -->"
 }

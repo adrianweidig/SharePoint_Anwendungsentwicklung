@@ -1,12 +1,12 @@
 import * as React from 'react';
-import styles from './01FirstSpFxWebPart.module.scss';
-import { I01FirstSpFxWebPartProps } from './I01FirstSpFxWebPartProps';
+import styles from './ErstesSpfxWebpart.module.scss';
+import { IErstesSpfxWebpartProps } from './IErstesSpfxWebpartProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
-export default class 01FirstSpFxWebPart extends React.Component < I01FirstSpFxWebPartProps, {} > {
-  public render(): React.ReactElement<I01FirstSpFxWebPartProps> {
+export default class ErstesSpfxWebpart extends React.Component < IErstesSpfxWebpartProps, {} > {
+  public render(): React.ReactElement<IErstesSpfxWebpartProps> {
     return(
-      <div className = { styles.01FirstSpFxWebPart } >
+      <div className = { styles.erstesSpfxWebpart } >
   <div className={styles.container}>
     <div className={styles.row}>
       <div className={styles.column}>
