@@ -36,103 +36,137 @@
 - SharePoint Server 2019 muss auf einem Windows Server installiert und konfiguriert sein, sodass eine erste Webseite verfügbar ist.
 
 ---
+# Anleitung zur Entwicklung mit SharePoint Framework (SPFx) 2019
 
-## Erstellen und Debuggen von SPFx / SharePoint Framework mit JavaScript
+Diese Anleitung führt Sie durch die Installation der benötigten Tools und die Konfiguration Ihrer Entwicklungsumgebung für SharePoint Framework (SPFx) 2019.
 
-### Vorbereitung der IDE für die SPFx-Entwicklung
+## Vorbereitung der IDE für die SPFx-Entwicklung
 
-1. **Visual Studio Code installieren (bzw. irgendeine IDE):**
-   - Laden Sie Visual Studio Code von der offiziellen Website herunter: [Visual Studio Code](https://code.visualstudio.com/).
-   - Installieren Sie Visual Studio Code auf Ihrem System.
+1. **Visual Studio Code installieren:**
+    - Laden Sie Visual Studio Code von der offiziellen Website herunter: [Visual Studio Code](https://code.visualstudio.com/).
+    - Installieren Sie Visual Studio Code auf Ihrem System.
 
-2. **Node.js und npm installieren:**
-   - Laden Sie die neueste LTS-Version von Node.js von der offiziellen Website herunter: [Node.js](https://nodejs.org/).
-   - Installieren Sie Node.js, das automatisch auch npm (Node Package Manager) installiert.
+2. **Node.js und NVM installieren:**
+    - **NVM für Windows herunterladen:**
+        - Laden Sie die [nvm-noinstall.zip](https://github.com/coreybutler/nvm-windows/releases) herunter und entpacken Sie sie in ein Verzeichnis Ihrer Wahl.
+        - Öffnen Sie eine Administrator-Powershell und navigieren Sie zu diesem Verzeichnis.
+        - Führen Sie `nvm-setup.exe` aus, um `nvm` zu installieren.
+    - **Node.js Version 14.17.1 installieren:**
+        - Öffnen Sie eine Administrator-Powershell und führen Sie die folgenden Befehle aus:
 
-3. **Yeoman und Gulp global installieren:**
-   - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
-   - Führen Sie den folgenden Befehl aus, um Yeoman und Gulp global zu installieren:
-     ```bash
-     npm install -g yo gulp
-     ```
+          ```bash
+          nvm install 14.17.1
+          nvm use 14.17.1
+          ```
 
-4. **SharePoint Framework Yeoman Generator installieren:**
-   - Führen Sie den folgenden Befehl aus, um den SharePoint Framework Yeoman Generator global zu installieren:
-     ```bash
-     npm install -g @microsoft/generator-sharepoint
-     ```
+        - Überprüfen Sie die Node.js-Version:
 
-5. **Visual Studio Code Erweiterungen installieren:**
-   - Öffnen Sie Visual Studio Code.
-   - Installieren Sie die folgenden empfohlenen Erweiterungen:
-     - **ESLint:** Sucht nach Fehlern in Ihrem JavaScript-Code.
-     - **Prettier - Code formatter:** Formatiert Ihren Code automatisch.
-     - **SPFx Snippets:** Bietet nützliche Code-Snippets für SPFx.
-     - **npm:** Unterstützt die Arbeit mit npm-Paketen.
-     - **Debugger for Chrome:** Ermöglicht das Debuggen von JavaScript-Code in Google Chrome.
+          ```bash
+          node -v
+          ```
 
-### Erstellen eines neuen SPFx-Projekts
+   **Hinweis:** NVM sollte immer über eine Administrator-Powershell gestartet werden, um Probleme bei der Pfadfindung und Berechtigungen zu vermeiden.
+
+3. **Globale npm-Tools installieren:**
+    - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
+    - Führen Sie die folgenden Befehle aus, um die benötigten Tools zu installieren:
+
+      ```bash
+      npm install gulp-cli@2.3.0 --global --force
+      npm install yo@2.0.6 --global --force
+      npm install @microsoft/generator-sharepoint@1.10.0 --global --force
+      ```
+
+   **Warnhinweis:** Die Verwendung des Flags `--force` bei der Installation von npm-Paketen überschreibt möglicherweise bereits vorhandene Versionen der Bibliotheken. Dies kann zu Konflikten führen, wenn andere Projekte unterschiedliche Versionen dieser Pakete benötigen. Aktualisieren Sie bei Projektwechsel die Pakete entsprechend.
+
+4. **Visual Studio Code Erweiterungen installieren:**
+    - Öffnen Sie Visual Studio Code.
+    - Installieren Sie die folgenden empfohlenen Erweiterungen:
+        - **ESLint:** Sucht nach Fehlern in Ihrem JavaScript-Code.
+        - **Prettier - Code formatter:** Formatiert Ihren Code automatisch.
+        - **SPFx Snippets:** Bietet nützliche Code-Snippets für SPFx.
+        - **npm:** Unterstützt die Arbeit mit npm-Paketen.
+        - **Debugger for Chrome:** Ermöglicht das Debuggen von JavaScript-Code in Google Chrome.
+
+## Erstellen eines neuen SPFx-Projekts
 
 1. **Erstellen eines Projektverzeichnisses:**
-   - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
-   - Erstellen Sie ein neues Verzeichnis und navigieren Sie in dieses:
-     ```bash
-     mkdir spfx-webpart
-     cd spfx-webpart
-     ```
+    - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
+    - Erstellen Sie ein neues Verzeichnis und navigieren Sie in dieses:
+
+      ```bash
+      mkdir spfx-webpart
+      cd spfx-webpart
+      ```
 
 2. **Yeoman Generator ausführen:**
-   - Führen Sie den SharePoint Framework Yeoman Generator aus:
-     ```bash
-     yo @microsoft/sharepoint
-     ```
-   - Beantworten Sie die folgenden Fragen des Generators:
-     - **SharePoint Online only (latest):** Ja
-     - **WebPart Name:** Geben Sie den Namen Ihres Webparts ein.
-     - **WebPart Description:** Geben Sie eine Beschreibung für Ihr Webpart ein.
-     - **Framework to use:** No JavaScript framework (oder wählen Sie ein Framework Ihrer Wahl, wie React oder Angular).
+    - Führen Sie den SharePoint Framework Yeoman Generator aus:
+
+      ```bash
+      yo @microsoft/sharepoint
+      ```
+
+    - Beantworten Sie die folgenden Fragen des Generators:
+        - **SharePoint Online only (latest):** Ja
+        - **WebPart Name:** Geben Sie den Namen Ihres Webparts ein.
+        - **WebPart Description:** Geben Sie eine Beschreibung für Ihr Webpart ein.
+        - **Framework to use:** No JavaScript framework (oder wählen Sie ein Framework Ihrer Wahl, wie React oder Angular).
 
 3. **Projektabhängigkeiten installieren:**
-   - Nachdem der Generator abgeschlossen ist, installieren Sie die Projektabhängigkeiten:
-     ```bash
-     npm install
-     ```
+    - Nachdem der Generator abgeschlossen ist, installieren Sie die Projektabhängigkeiten:
 
-### Entwickeln eines SPFx Webparts
+      ```bash
+      npm install
+      ```
+
+## Entwickeln eines SPFx Webparts
 
 1. **Starten der Entwicklungsumgebung:**
-   - Starten Sie die lokale Entwicklungsumgebung:
-     ```bash
-     gulp serve
-     ```
-   - Dies öffnet ein neues Browserfenster mit der SharePoint Workbench, wo Sie Ihr Webpart in Echtzeit testen können.
+    - Starten Sie die lokale Entwicklungsumgebung:
+
+      ```bash
+      gulp serve
+      ```
+
+    - Dies öffnet ein neues Browserfenster mit der SharePoint Workbench, wo Sie Ihr Webpart in Echtzeit testen können.
 
 2. **Bearbeiten des Webparts:**
-   - Öffnen Sie Visual Studio Code und laden Sie Ihr Projektverzeichnis.
-   - Bearbeiten Sie die Datei `src/webparts/[IhrWebPart]/[IhrWebPart].ts` und passen Sie das Webpart nach Ihren Anforderungen an.
+    - Öffnen Sie Visual Studio Code und laden Sie Ihr Projektverzeichnis.
+    - Bearbeiten Sie die Datei `src/webparts/[IhrWebPart]/[IhrWebPart].ts` und passen Sie das Webpart nach Ihren Anforderungen an.
 
 3. **Verwenden von Umgebungsvariablen:**
-   - Erstellen Sie eine `.env`-Datei im Stammverzeichnis Ihres Projekts, um Umgebungsvariablen zu verwalten.
-   - Beispiel für den Inhalt der `.env`-Datei:
-     ```env
-     REACT_APP_API_URL=https://api.example.com
-     ```
+    - Erstellen Sie eine `.env`-Datei im Stammverzeichnis Ihres Projekts, um Umgebungsvariablen zu verwalten.
+    - Beispiel für den Inhalt der `.env`-Datei:
 
-### Debuggen und Bereitstellen des SPFx Webparts
+      ```env
+      REACT_APP_API_URL=https://api.example.com
+      ```
+
+## Debuggen und Bereitstellen des SPFx Webparts
 
 1. **Debuggen in Visual Studio Code:**
-   - Setzen Sie Breakpoints in Ihrem Code.
-   - Verwenden Sie die "Debugger for Chrome" Erweiterung, um Ihren Code in Google Chrome zu debuggen.
-   - Konfigurieren Sie die Debugger-Einstellungen in der Datei `.vscode/launch.json`.
+    - Setzen Sie Breakpoints in Ihrem Code.
+    - Verwenden Sie die "Debugger for Chrome" Erweiterung, um Ihren Code in Google Chrome zu debuggen.
+    - Konfigurieren Sie die Debugger-Einstellungen in der Datei `.vscode/launch.json`.
 
 2. **Build und Bereitstellung:**
-   - Erstellen Sie eine Produktionsversion Ihres Webparts:
-     ```bash
-     gulp bundle --ship
-     gulp package-solution --ship
-     ```
-   - Laden Sie das generierte `.sppkg`-Paket aus dem `sharepoint/solution`-Ordner in den App-Katalog Ihrer SharePoint-Umgebung hoch.
-   - Aktivieren Sie das Webpart in Ihrer SharePoint-Seite.
+    - Erstellen Sie eine Produktionsversion Ihres Webparts:
+
+      ```bash
+      gulp bundle --ship
+      gulp package-solution --ship
+      ```
+
+    - Laden Sie das generierte `.sppkg`-Paket aus dem `sharepoint/solution`-Ordner in den App-Katalog Ihrer SharePoint-Umgebung hoch.
+    - Aktivieren Sie das Webpart in Ihrer SharePoint-Seite.
+
+## Weitere Hinweise
+
+- **NVM für Windows:** Verwenden Sie immer eine Administrator-Powershell, um NVM zu starten, um sicherzustellen, dass alle Pfad- und Berechtigungsprobleme vermieden werden.
+- **Node.js-Versionen:** Verwenden Sie `nvm use <version>`, um zwischen verschiedenen Node.js-Versionen zu wechseln, wenn Sie unterschiedliche Projekte unterstützen müssen.
+
+Für weitere Informationen und Unterstützung, besuchen Sie die [offizielle Dokumentation für SPFx](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview).
+
 
 ---
 
