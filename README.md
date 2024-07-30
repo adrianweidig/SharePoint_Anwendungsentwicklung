@@ -169,6 +169,7 @@ Wenn Sie beim Versuch, Gulp auszuführen, auf den Fehler `ReferenceError: primor
      ```bash
      npm install
      ```
+     Nur nötig, falls in Schritt 2 Fehler aufgetreten sind.
 
 4. **Trust Developer Certificate:**
    - Registrieren Sie das Entwicklerzertifikat (Sollte gulp nicht funktionieren oder nicht gefunden werden nochmal 'npm install gulp@2.3.0' durchführen):
