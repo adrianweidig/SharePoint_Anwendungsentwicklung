@@ -52,12 +52,12 @@ Diese Anleitung führt Sie durch die Installation der benötigten Tools und die 
       - Laden Sie die [nvm-noinstall.zip](https://github.com/coreybutler/nvm-windows/releases) herunter und entpacken Sie sie in ein Verzeichnis Ihrer Wahl.
       - Öffnen Sie eine Administrator-Powershell und navigieren Sie zu diesem Verzeichnis.
       - Führen Sie `nvm-setup.exe` aus, um `nvm` zu installieren.
-   - **Node.js Version 14.17.1 installieren:**
+   - **Node.js Version 8.17 installieren:**
       - Öffnen Sie eine Administrator-Powershell und führen Sie die folgenden Befehle aus:
 
         ```bash
-        nvm install 14.17.1
-        nvm use 14.17.1
+        nvm install 8.17
+        nvm use 8.17
         ```
 
       - Überprüfen Sie die Node.js-Version:
@@ -73,10 +73,12 @@ Diese Anleitung führt Sie durch die Installation der benötigten Tools und die 
    - Führen Sie die folgenden Befehle aus, um die benötigten Tools zu installieren:
 
      ```bash
-     npm install gulp-cli@2.3.0 --global --force
-     npm install yo@2.0.6 --global --force
-     npm install @microsoft/generator-sharepoint@1.10.0 --global --force
+     npm install gulp-cli@2.3.0 --global
+     npm install yo@3.1.1 --global
+     npm install -g @pnp/generator-spfx@1.14.2 --force
      ```
+     
+    [BEACHTE: pnp-spfx-generator Known-Issues](https://pnp.github.io/generator-spfx/known-issues/)
 
    **Warnhinweis:** Die Verwendung des Flags `--force` bei der Installation von npm-Paketen überschreibt möglicherweise bereits vorhandene Versionen der Bibliotheken. Dies kann zu Konflikten führen, wenn andere Projekte unterschiedliche Versionen dieser Pakete benötigen. Aktualisieren Sie bei Projektwechsel die Pakete entsprechend.
 
@@ -96,30 +98,32 @@ Wenn Sie beim Versuch, Gulp auszuführen, auf den Fehler `ReferenceError: primor
 ### Lösungsmöglichkeiten für `ReferenceError: primordials is not defined`:
 
 - **`graceful-fs` auf Version 4.2.2 fixieren:**
-    - Wenn Sie Gulp v3 verwenden müssen und Node v12 beibehalten möchten, können Sie `graceful-fs` auf eine Version fixieren, die unter Node v12 funktioniert. Diese Option hat bei mir funktioniert, und ich empfehle sie daher:
+   - Wenn Sie Gulp v3 verwenden müssen und Node v12 beibehalten möchten, können Sie `graceful-fs` auf eine Version fixieren, die unter Node v12 funktioniert. Diese Option hat bei mir funktioniert, und ich empfehle sie daher:
 
-      **Schritte zur Fixierung auf `graceful-fs` Version 4.2.2:**
+     **Schritte zur Fixierung auf `graceful-fs` Version 4.2.2:**
 
-        1. Finden Sie Ihre `package.json`-Datei.
-        2. Erstellen Sie im selben Verzeichnis eine `npm-shrinkwrap.json`-Datei mit dem folgenden Inhalt:
+      1. Finden Sie Ihre `package.json`-Datei.
+      2. Erstellen Sie im selben Verzeichnis eine `npm-shrinkwrap.json`-Datei mit dem folgenden Inhalt:
 
-           ```json
-           {
-             "dependencies": {
-               "graceful-fs": {
-                 "version": "4.2.2"
-               }
+         ```json
+         {
+           "dependencies": {
+             "graceful-fs": {
+               "version": "4.2.2"
              }
            }
-           ```
+         }
+         ```
 
-        3. Führen Sie anschließend den folgenden Befehl aus, um die `npm-shrinkwrap.json` zu berücksichtigen:
+      3. Führen Sie anschließend den folgenden Befehl aus, um die `npm-shrinkwrap.json` zu berücksichtigen:
 
-           ```bash
-           npm install
-           ```
+         ```bash
+         npm install
+         ```
 
-   **Quelle:** [IntelliJ Support Community](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360007646780-How-to-fix-ReferenceError-primordials-is-not-defined-error)
+  ACHTUNG: Dies muss bei jedem neuen YO Projekt / WebPart ausgeführt werden, da die configs durch den Generator überschrieben werden.
+
+  **Quelle:** [IntelliJ Support Community](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360007646780-How-to-fix-ReferenceError-primordials-is-not-defined-error)
 
 ## Erstellen eines neuen SPFx-Projekts
 
@@ -136,22 +140,27 @@ Wenn Sie beim Versuch, Gulp auszuführen, auf den Fehler `ReferenceError: primor
    - Führen Sie den SharePoint Framework Yeoman Generator aus:
 
      ```bash
-     yo @microsoft/sharepoint
+     yo @pnp/spfx
      ```
 
-   - Beantworten Sie die folgenden Fragen des Generators:
+   - Beantworten Sie die folgenden Fragen des Generators (Beispiel):
 
      ```
-     ? What is your solution name? 04-sp-fx-share-point-framework
+     Generator:     PnP Community SPFx Generator
+     Author:        Office 365 / SharePoint PnP Core Team
+     Maintainers:   Stefan Bauer
+     Contributors:  Chandani Prajapati, Magnus Danielson, Matthew Farrell, Bill Ayers, Vincent Biret, Sergei Sergeev, Paweł Hawrylak, Chris Kent, Alex Terentiev
+     Version:       1.14.2
+
+     Based on  @microsoft/generator-sharepoint version: 1.10.0
+
      ? Which baseline packages do you want to target for your component(s)? SharePoint 2019 onwards, including SharePoint Online
-     ? Where do you want to place the files? Use the current folder
-     Found npm version 6.14.13
-     ? Do you want to allow the tenant admin the choice of being able to deploy the solution to all sites immediately without running any feature deployment or adding apps in sites? Yes
-     ? Which type of client-side component to create? WebPart
-     Add new Web part to solution 04-sp-fx-share-point-framework.
-     ? What is your Web part name? 01_FirstSPFxWebPart
-     ? What is your Web part description? Erstes SPFx_WebPart
-     ? Which framework would you like to use? React
+     ? Choose your framework - ReactJS
+     ? Which libraries to include? jQuery, Microsoft Graph - Type Definitions, pnpjs, PnP Property Controls, spfx-uifabric-themes - enhanced theming support, lodash, PnP Reusable Controls, Office UI Fabric
+     ? Office UI Fabric: Please choose a version: 6.x.x incl. Fluent Theme
+     ? Vetting Options WebPack Bundle Analyzer, Style Linter, CSS Comb
+     ? Include pipeline configuration? None
+     ? Test Framework Jest
      ```
 
 3. **Projektabhängigkeiten installieren:**
@@ -161,20 +170,34 @@ Wenn Sie beim Versuch, Gulp auszuführen, auf den Fehler `ReferenceError: primor
      npm install
      ```
 
+4. **Trust Developer Certificate:**
+   - Registrieren Sie das Entwicklerzertifikat (Sollte gulp nicht funktionieren oder nicht gefunden werden nochmal 'npm install gulp@2.3.0' durchführen):
+
+     ```bash
+     gulp trust-dev-cert
+     ```
+
+   - Bei Problemen das Zertifikat untrust und neu registrieren:
+
+     ```bash
+     gulp untrust-dev-cert
+     gulp trust-dev-cert
+     ```
+
 ## Entwickeln eines SPFx Webparts
 
 1. **Starten der Entwicklungsumgebung:**
-   - Starten Sie die lokale Entwicklungsumgebung:
+   - Starten Sie die lokale Entwicklungsumgebung (Sollte gulp nicht funktionieren oder nicht gefunden werden nochmal 'npm install gulp@2.3.0' durchführen):
 
      ```bash
      gulp serve
      ```
 
-   - Dies öffnet ein neues Browserfenster mit der SharePoint Workbench, wo Sie Ihr Webpart in Echtzeit testen können.
+   - Dies öffnet ein neues Browserfenster mit der SharePoint Workbench, wo Sie Ihr Webpart in Echtzeit testen  (Sollte das Fenster komplett weiß angezeigt werden wird empfholen auf z.B. Google Chrome oder einen anderen Browser zu wechseln).
 
 2. **Bearbeiten des Webparts:**
    - Öffnen Sie Visual Studio Code und laden Sie Ihr Projektverzeichnis.
-   - Bearbeiten Sie die Datei `src/webparts/01_FirstSPFxWebPart/01_FirstSPFxWebPart.ts` und passen Sie das Webpart nach Ihren Anforderungen an.
+   - Bearbeiten Sie die Datei `src/webparts/FirstSPFxWebPart/FirstSPFxWebPart.ts` und passen Sie das Webpart nach Ihren Anforderungen an.
 
 3. **Verwenden von Umgebungsvariablen:**
    - Erstellen Sie eine `.env`-Datei im Stammverzeichnis Ihres Projekts, um Umgebungsvariablen zu verwalten.
