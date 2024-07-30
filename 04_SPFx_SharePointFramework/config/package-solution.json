@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "04-sp-fx-share-point-framework-client-side-solution",
+    "id": "f23a85af-6b82-4b75-a68f-a4283d796abd",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/04-sp-fx-share-point-framework.sppkg"
+  }
+}
