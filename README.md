@@ -36,6 +36,7 @@
 - SharePoint Server 2019 muss auf einem Windows Server installiert und konfiguriert sein, sodass eine erste Webseite verfügbar ist.
 
 ---
+
 # Anleitung zur Entwicklung mit SharePoint Framework (SPFx) 2019
 
 Diese Anleitung führt Sie durch die Installation der benötigten Tools und die Konfiguration Ihrer Entwicklungsumgebung für SharePoint Framework (SPFx) 2019.
@@ -43,122 +44,131 @@ Diese Anleitung führt Sie durch die Installation der benötigten Tools und die 
 ## Vorbereitung der IDE für die SPFx-Entwicklung
 
 1. **Visual Studio Code installieren:**
-    - Laden Sie Visual Studio Code von der offiziellen Website herunter: [Visual Studio Code](https://code.visualstudio.com/).
-    - Installieren Sie Visual Studio Code auf Ihrem System.
+   - Laden Sie Visual Studio Code von der offiziellen Website herunter: [Visual Studio Code](https://code.visualstudio.com/).
+   - Installieren Sie Visual Studio Code auf Ihrem System.
 
 2. **Node.js und NVM installieren:**
-    - **NVM für Windows herunterladen:**
-        - Laden Sie die [nvm-noinstall.zip](https://github.com/coreybutler/nvm-windows/releases) herunter und entpacken Sie sie in ein Verzeichnis Ihrer Wahl.
-        - Öffnen Sie eine Administrator-Powershell und navigieren Sie zu diesem Verzeichnis.
-        - Führen Sie `nvm-setup.exe` aus, um `nvm` zu installieren.
-    - **Node.js Version 14.17.1 installieren:**
-        - Öffnen Sie eine Administrator-Powershell und führen Sie die folgenden Befehle aus:
+   - **NVM für Windows herunterladen:**
+      - Laden Sie die [nvm-noinstall.zip](https://github.com/coreybutler/nvm-windows/releases) herunter und entpacken Sie sie in ein Verzeichnis Ihrer Wahl.
+      - Öffnen Sie eine Administrator-Powershell und navigieren Sie zu diesem Verzeichnis.
+      - Führen Sie `nvm-setup.exe` aus, um `nvm` zu installieren.
+   - **Node.js Version 14.17.1 installieren:**
+      - Öffnen Sie eine Administrator-Powershell und führen Sie die folgenden Befehle aus:
 
-          ```bash
-          nvm install 14.17.1
-          nvm use 14.17.1
-          ```
+        ```bash
+        nvm install 14.17.1
+        nvm use 14.17.1
+        ```
 
-        - Überprüfen Sie die Node.js-Version:
+      - Überprüfen Sie die Node.js-Version:
 
-          ```bash
-          node -v
-          ```
+        ```bash
+        node -v
+        ```
 
    **Hinweis:** NVM sollte immer über eine Administrator-Powershell gestartet werden, um Probleme bei der Pfadfindung und Berechtigungen zu vermeiden.
 
 3. **Globale npm-Tools installieren:**
-    - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
-    - Führen Sie die folgenden Befehle aus, um die benötigten Tools zu installieren:
+   - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
+   - Führen Sie die folgenden Befehle aus, um die benötigten Tools zu installieren:
 
-      ```bash
-      npm install gulp-cli@2.3.0 --global --force
-      npm install yo@2.0.6 --global --force
-      npm install @microsoft/generator-sharepoint@1.10.0 --global --force
-      ```
+     ```bash
+     npm install gulp-cli@2.3.0 --global --force
+     npm install yo@2.0.6 --global --force
+     npm install @microsoft/generator-sharepoint@1.10.0 --global --force
+     ```
 
    **Warnhinweis:** Die Verwendung des Flags `--force` bei der Installation von npm-Paketen überschreibt möglicherweise bereits vorhandene Versionen der Bibliotheken. Dies kann zu Konflikten führen, wenn andere Projekte unterschiedliche Versionen dieser Pakete benötigen. Aktualisieren Sie bei Projektwechsel die Pakete entsprechend.
 
 4. **Visual Studio Code Erweiterungen installieren:**
-    - Öffnen Sie Visual Studio Code.
-    - Installieren Sie die folgenden empfohlenen Erweiterungen:
-        - **ESLint:** Sucht nach Fehlern in Ihrem JavaScript-Code.
-        - **Prettier - Code formatter:** Formatiert Ihren Code automatisch.
-        - **SPFx Snippets:** Bietet nützliche Code-Snippets für SPFx.
-        - **npm:** Unterstützt die Arbeit mit npm-Paketen.
-        - **Debugger for Chrome:** Ermöglicht das Debuggen von JavaScript-Code in Google Chrome.
+   - Öffnen Sie Visual Studio Code.
+   - Installieren Sie die folgenden empfohlenen Erweiterungen:
+      - **ESLint:** Sucht nach Fehlern in Ihrem JavaScript-Code.
+      - **Prettier - Code formatter:** Formatiert Ihren Code automatisch.
+      - **SPFx Snippets:** Bietet nützliche Code-Snippets für SPFx.
+      - **npm:** Unterstützt die Arbeit mit npm-Paketen.
+      - **Debugger for Chrome:** Ermöglicht das Debuggen von JavaScript-Code in Google Chrome.
 
 ## Erstellen eines neuen SPFx-Projekts
 
 1. **Erstellen eines Projektverzeichnisses:**
-    - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
-    - Erstellen Sie ein neues Verzeichnis und navigieren Sie in dieses:
+   - Öffnen Sie ein Terminal oder eine Eingabeaufforderung.
+   - Erstellen Sie ein neues Verzeichnis und navigieren Sie in dieses:
 
-      ```bash
-      mkdir spfx-webpart
-      cd spfx-webpart
-      ```
+     ```bash
+     mkdir spfx-webpart
+     cd spfx-webpart
+     ```
 
 2. **Yeoman Generator ausführen:**
-    - Führen Sie den SharePoint Framework Yeoman Generator aus:
+   - Führen Sie den SharePoint Framework Yeoman Generator aus:
 
-      ```bash
-      yo @microsoft/sharepoint
-      ```
+     ```bash
+     yo @microsoft/sharepoint
+     ```
 
-    - Beantworten Sie die folgenden Fragen des Generators:
-        - **SharePoint Online only (latest):** Ja
-        - **WebPart Name:** Geben Sie den Namen Ihres Webparts ein.
-        - **WebPart Description:** Geben Sie eine Beschreibung für Ihr Webpart ein.
-        - **Framework to use:** No JavaScript framework (oder wählen Sie ein Framework Ihrer Wahl, wie React oder Angular).
+   - Beantworten Sie die folgenden Fragen des Generators:
+
+     ```
+     ? What is your solution name? 04-sp-fx-share-point-framework
+     ? Which baseline packages do you want to target for your component(s)? SharePoint 2019 onwards, including SharePoint Online
+     ? Where do you want to place the files? Use the current folder
+     Found npm version 6.14.13
+     ? Do you want to allow the tenant admin the choice of being able to deploy the solution to all sites immediately without running any feature deployment or adding apps in sites? Yes
+     ? Which type of client-side component to create? WebPart
+     Add new Web part to solution 04-sp-fx-share-point-framework.
+     ? What is your Web part name? 01_FirstSPFxWebPart
+     ? What is your Web part description? Erstes SPFx_WebPart
+     ? Which framework would you like to use? React
+     ```
 
 3. **Projektabhängigkeiten installieren:**
-    - Nachdem der Generator abgeschlossen ist, installieren Sie die Projektabhängigkeiten:
+   - Nachdem der Generator abgeschlossen ist, installieren Sie die Projektabhängigkeiten:
 
-      ```bash
-      npm install
-      ```
+     ```bash
+     npm install
+     ```
 
 ## Entwickeln eines SPFx Webparts
 
 1. **Starten der Entwicklungsumgebung:**
-    - Starten Sie die lokale Entwicklungsumgebung:
+   - Starten Sie die lokale Entwicklungsumgebung:
 
-      ```bash
-      gulp serve
-      ```
+     ```bash
+     gulp serve
+     ```
 
-    - Dies öffnet ein neues Browserfenster mit der SharePoint Workbench, wo Sie Ihr Webpart in Echtzeit testen können.
+   - Dies öffnet ein neues Browserfenster mit der SharePoint Workbench, wo Sie Ihr Webpart in Echtzeit testen können.
 
 2. **Bearbeiten des Webparts:**
-    - Öffnen Sie Visual Studio Code und laden Sie Ihr Projektverzeichnis.
-    - Bearbeiten Sie die Datei `src/webparts/[IhrWebPart]/[IhrWebPart].ts` und passen Sie das Webpart nach Ihren Anforderungen an.
+   - Öffnen Sie Visual Studio Code und laden Sie Ihr Projektverzeichnis.
+   - Bearbeiten Sie die Datei `src/webparts/01_FirstSPFxWebPart/01_FirstSPFxWebPart.ts` und passen Sie das Webpart nach Ihren Anforderungen an.
 
 3. **Verwenden von Umgebungsvariablen:**
-    - Erstellen Sie eine `.env`-Datei im Stammverzeichnis Ihres Projekts, um Umgebungsvariablen zu verwalten.
-    - Beispiel für den Inhalt der `.env`-Datei:
+   - Erstellen Sie eine `.env`-Datei im Stammverzeichnis Ihres Projekts, um Umgebungsvariablen zu verwalten.
+   - Beispiel für den Inhalt der `.env`-Datei:
 
-      ```env
-      REACT_APP_API_URL=https://api.example.com
-      ```
+     ```env
+     REACT_APP_API_URL=https://api.example.com
+     ```
 
 ## Debuggen und Bereitstellen des SPFx Webparts
 
 1. **Debuggen in Visual Studio Code:**
-    - Setzen Sie Breakpoints in Ihrem Code.
-    - Verwenden Sie die "Debugger for Chrome" Erweiterung, um Ihren Code in Google Chrome zu debuggen.
-    - Konfigurieren Sie die Debugger-Einstellungen in der Datei `.vscode/launch.json`.
+   - Setzen Sie Breakpoints in Ihrem Code.
+   - Verwenden Sie die "Debugger for Chrome" Erweiterung, um Ihren Code in Google Chrome zu debuggen.
+   - Konfigurieren Sie die Debugger-Einstellungen in der Datei `.vscode/launch.json`.
 
 2. **Build und Bereitstellung:**
-    - Erstellen Sie eine Produktionsversion Ihres Webparts:
+   - Erstellen Sie eine Produktionsversion Ihres Webparts:
 
-      ```bash
-      gulp bundle --ship
-      gulp package-solution --ship
-      ```
+     ```bash
+     gulp bundle --ship
+     gulp package-solution --ship
+     ```
 
-    - Laden Sie das generierte `.sppkg`-Paket aus dem `sharepoint/solution`-Ordner in den App-Katalog Ihrer SharePoint-Umgebung hoch.
-    - Aktivieren Sie das Webpart in Ihrer SharePoint-Seite.
+   - Laden Sie das generierte `.sppkg`-Paket aus dem `sharepoint/solution`-Ordner in den App-Katalog Ihrer SharePoint-Umgebung hoch.
+   - Aktivieren Sie das Webpart in Ihrer SharePoint-Seite.
 
 ## Weitere Hinweise
 
@@ -166,7 +176,6 @@ Diese Anleitung führt Sie durch die Installation der benötigten Tools und die 
 - **Node.js-Versionen:** Verwenden Sie `nvm use <version>`, um zwischen verschiedenen Node.js-Versionen zu wechseln, wenn Sie unterschiedliche Projekte unterstützen müssen.
 
 Für weitere Informationen und Unterstützung, besuchen Sie die [offizielle Dokumentation für SPFx](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview).
-
 
 ---
 
@@ -219,15 +228,15 @@ Für weitere Informationen und Unterstützung, besuchen Sie die [offizielle Doku
    - Wählen Sie `Hinzufügen` > `Neues Element` > `Workflow` und geben Sie einen Namen ein.
    - Wählen Sie `List Workflow` und die entsprechende SharePoint-Liste.
    - Aktivieren Sie die gewünschten Optionen:
-     - `Workflow nur manuell gestartet`
-     - `Workflow automatisch beim Erstellen eines neuen Elements starten`
-     - `Workflow automatisch bei Änderung eines Elements starten`
+      - `Workflow nur manuell gestartet`
+      - `Workflow automatisch beim Erstellen eines neuen Elements starten`
+      - `Workflow automatisch bei Änderung eines Elements starten`
    - Klicken Sie auf `Weiter`.
 
 2. **Workflow-Logik implementieren:**
    - Doppelklicken Sie auf die Workflow-Datei, um den Designer zu öffnen.
    - Ziehen Sie Aktivitäten aus der Toolbox in den Designer:
-     - Beispiele: `Send an Email`, `Create List Item`, `Update List Item`
+      - Beispiele: `Send an Email`, `Create List Item`, `Update List Item`
    - Konfigurieren Sie die Aktivitäten gemäß den Anforderungen.
 
 3. **Workflow-Parameter konfigurieren:**
@@ -244,7 +253,7 @@ Für weitere Informationen und Unterstützung, besuchen Sie die [offizielle Doku
 
 ## Erstellen und Debuggen einer SharePoint App (Add-In) via Visual Studio
 
-KLARE EMPFEHLUNG: KEINE Addins mehr benutzen. Erstens sie verlieren ihren Support, werden durch die Community fast nicht mehr supportet und ebenfalls sind sie extrem kompliziert zu implementieren mit zusätzlich extrem vielen Fehlerquellen die oftmals das Design zerstören.
+**KLARE EMPFEHLUNG:** KEINE Add-ins mehr benutzen. Erstens verlieren sie ihren Support, werden durch die Community fast nicht mehr unterstützt und sind kompliziert zu implementieren mit vielen Fehlerquellen, die oft das Design zerstören.
 
 1. **Visual Studio als Administrator starten:**
    - Rechtsklick auf das Visual Studio-Symbol und "Als Administrator ausführen" wählen.
