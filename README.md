@@ -89,6 +89,38 @@ Diese Anleitung führt Sie durch die Installation der benötigten Tools und die 
       - **npm:** Unterstützt die Arbeit mit npm-Paketen.
       - **Debugger for Chrome:** Ermöglicht das Debuggen von JavaScript-Code in Google Chrome.
 
+## Problembehebung: Fehler `ReferenceError: primordials is not defined` bei der Ausführung von Gulp
+
+Wenn Sie beim Versuch, Gulp auszuführen, auf den Fehler `ReferenceError: primordials is not defined` stoßen, könnte dies daran liegen, dass Sie Gulp v3 und Node v12 verwenden. Der Grund für diesen Fehler ist, dass Gulp v3 auf `graceful-fs@^3.0.0` angewiesen ist, das das fs-Modul von Node patcht. Dieser Patch funktionierte vor Node v12, aber nicht mehr in dieser Version.
+
+### Lösungsmöglichkeiten für `ReferenceError: primordials is not defined`:
+
+- **`graceful-fs` auf Version 4.2.2 fixieren:**
+    - Wenn Sie Gulp v3 verwenden müssen und Node v12 beibehalten möchten, können Sie `graceful-fs` auf eine Version fixieren, die unter Node v12 funktioniert. Diese Option hat bei mir funktioniert, und ich empfehle sie daher:
+
+      **Schritte zur Fixierung auf `graceful-fs` Version 4.2.2:**
+
+        1. Finden Sie Ihre `package.json`-Datei.
+        2. Erstellen Sie im selben Verzeichnis eine `npm-shrinkwrap.json`-Datei mit dem folgenden Inhalt:
+
+           ```json
+           {
+             "dependencies": {
+               "graceful-fs": {
+                 "version": "4.2.2"
+               }
+             }
+           }
+           ```
+
+        3. Führen Sie anschließend den folgenden Befehl aus, um die `npm-shrinkwrap.json` zu berücksichtigen:
+
+           ```bash
+           npm install
+           ```
+
+   **Quelle:** [IntelliJ Support Community](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360007646780-How-to-fix-ReferenceError-primordials-is-not-defined-error)
+
 ## Erstellen eines neuen SPFx-Projekts
 
 1. **Erstellen eines Projektverzeichnisses:**
