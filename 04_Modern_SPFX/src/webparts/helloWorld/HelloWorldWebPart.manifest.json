@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "b961ace2-d01c-4fbf-b7df-76faf3083278",
-  "alias": "ErstesSpfxWebpartWebPart",
+  "id": "fb5fbc15-1e55-489e-b32d-ab2436c3a332",
+  "alias": "HelloWorldWebPart",
   "componentType": "WebPart",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -16,11 +16,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "ErstesSPFXWebpart" },
-    "description": { "default": "ErstesSPFXWebpart description" },
+    "title": { "default": "HelloWorld" },
+    "description": { "default": "HelloWorld description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "ErstesSPFXWebpart"
+      "description": "HelloWorld"
     }
   }]
 }

@@ -2,18 +2,36 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
-    "erstes-spfx-webpart-web-part": {
+    "hello-world-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/erstesSpfxWebpart/ErstesSpfxWebpartWebPart.js",
-          "manifest": "./src/webparts/erstesSpfxWebpart/ErstesSpfxWebpartWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
+          "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json"
+        }
+      ]
+    },
+    "steuerelemente-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/steuerelemente/SteuerelementeWebPart.js",
+          "manifest": "./src/webparts/steuerelemente/SteuerelementeWebPart.manifest.json"
+        }
+      ]
+    },
+    "webparteigenschaften-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/webparteigenschaften/WebparteigenschaftenWebPart.js",
+          "manifest": "./src/webparts/webparteigenschaften/WebparteigenschaftenWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "ErstesSpfxWebpartWebPartStrings": "lib/webparts/erstesSpfxWebpart/loc/{locale}.js",
-    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js",
+    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
+    "SteuerelementeWebPartStrings": "lib/webparts/steuerelemente/loc/{locale}.js",
+    "WebparteigenschaftenWebPartStrings": "lib/webparts/webparteigenschaften/loc/{locale}.js"
   }
 }

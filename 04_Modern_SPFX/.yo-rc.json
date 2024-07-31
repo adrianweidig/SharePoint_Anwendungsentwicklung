@@ -14,7 +14,7 @@
   "@microsoft/generator-sharepoint": {
     "environment": "onprem19",
     "framework": "react",
-    "isCreatingSolution": true,
+    "isCreatingSolution": false,
     "version": "1.10.0",
     "libraryName": "04-modern-spfx",
     "libraryId": "baeb5a28-acbc-417b-b320-77425eacab6f",

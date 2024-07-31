@@ -7,19 +7,19 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'ErstesSpfxWebpartWebPartStrings';
-import ErstesSpfxWebpart from './components/ErstesSpfxWebpart';
-import { IErstesSpfxWebpartProps } from './components/IErstesSpfxWebpartProps';
+import * as strings from 'WebparteigenschaftenWebPartStrings';
+import Webparteigenschaften from './components/Webparteigenschaften';
+import { IWebparteigenschaftenProps } from './components/IWebparteigenschaftenProps';
 
-export interface IErstesSpfxWebpartWebPartProps {
+export interface IWebparteigenschaftenWebPartProps {
   description: string;
 }
 
-export default class ErstesSpfxWebpartWebPart extends BaseClientSideWebPart<IErstesSpfxWebpartWebPartProps> {
+export default class WebparteigenschaftenWebPart extends BaseClientSideWebPart<IWebparteigenschaftenWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IErstesSpfxWebpartProps > = React.createElement(
-      ErstesSpfxWebpart,
+    const element: React.ReactElement<IWebparteigenschaftenProps > = React.createElement(
+      Webparteigenschaften,
       {
         description: this.properties.description
       }
