@@ -26,11 +26,11 @@
         }
       ]
     },
-    "dateiverarbeitung-web-part": {
+    "crud-pnp-sp-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/dateiverarbeitung/DateiverarbeitungWebPart.js",
-          "manifest": "./src/webparts/dateiverarbeitung/DateiverarbeitungWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/crudPnpSp/CrudPnpSpWebPart.js",
+          "manifest": "./src/webparts/crudPnpSp/CrudPnpSpWebPart.manifest.json"
         }
       ]
     }
@@ -41,6 +41,6 @@
     "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
     "SteuerelementeWebPartStrings": "lib/webparts/steuerelemente/loc/{locale}.js",
     "WebparteigenschaftenWebPartStrings": "lib/webparts/webparteigenschaften/loc/{locale}.js",
-    "DateiverarbeitungWebPartStrings": "lib/webparts/dateiverarbeitung/loc/{locale}.js"
+    "CrudPnpSpWebPartStrings": "lib/webparts/crudPnpSp/loc/{locale}.js"
   }
 }
