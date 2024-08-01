@@ -1,6 +1,6 @@
 # Upgrade project 04_Modern_SPFX to v1.10.0
 
-Date: 2024-7-31
+Date: 2024-8-1
 
 ## Findings
 
@@ -144,14 +144,38 @@ File: [./tsconfig.json](./tsconfig.json)
 
 Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package
 
-In file [src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.ts](src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.ts) update the code as follows:
+In file [src\webparts\helloWorld\HelloWorldWebPart.ts](src\webparts\helloWorld\HelloWorldWebPart.ts) update the code as follows:
 
 ```ts
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import { IPropertyPaneConfiguration, PropertyPaneTextField } from "@microsoft/sp-property-pane";
 ```
 
-File: [src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.ts:4:1](src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.ts)
+File: [src\webparts\helloWorld\HelloWorldWebPart.ts:4:1](src\webparts\helloWorld\HelloWorldWebPart.ts)
+
+### FN016004 Property pane property import change to @microsoft/sp-property-pane | Required
+
+Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package
+
+In file [src\webparts\steuerelemente\SteuerelementeWebPart.ts](src\webparts\steuerelemente\SteuerelementeWebPart.ts) update the code as follows:
+
+```ts
+import { IPropertyPaneConfiguration, PropertyPaneTextField } from "@microsoft/sp-property-pane";
+```
+
+File: [src\webparts\steuerelemente\SteuerelementeWebPart.ts:2:1](src\webparts\steuerelemente\SteuerelementeWebPart.ts)
+
+### FN016004 Property pane property import change to @microsoft/sp-property-pane | Required
+
+Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package
+
+In file [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts) update the code as follows:
+
+```ts
+import { IPropertyPaneConfiguration, PropertyPaneTextField, PropertyPaneToggle } from "@microsoft/sp-property-pane";
+```
+
+File: [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts:2:1](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts)
 
 ### FN001005 @types/react | Required
 
@@ -249,31 +273,31 @@ File: [./package.json](./package.json)
 
 Remove scss file import
 
-In file [src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss](src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss) update the code as follows:
+In file [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts\helloWorld\components\HelloWorld.module.scss) update the code as follows:
 
 ```scss
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss'
 ```
 
-File: [src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss](src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss)
+File: [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts\helloWorld\components\HelloWorld.module.scss)
 
 ### FN022002 Scss file import | Optional
 
 Add scss file import
 
-In file [src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss](src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss) update the code as follows:
+In file [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts\helloWorld\components\HelloWorld.module.scss) update the code as follows:
 
 ```scss
 @import '~office-ui-fabric-react/dist/sass/References.scss'
 ```
 
-File: [src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss](src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss)
+File: [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts\helloWorld\components\HelloWorld.module.scss)
 
 ### FN011011 Web part manifest supportedHosts | Required
 
 Update the supportedHosts property in the manifest
 
-In file [src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.manifest.json](src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.manifest.json) update the code as follows:
+In file [src\webparts\helloWorld\HelloWorldWebPart.manifest.json](src\webparts\helloWorld\HelloWorldWebPart.manifest.json) update the code as follows:
 
 ```json
 {
@@ -281,7 +305,35 @@ In file [src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.manifest.json](
 }
 ```
 
-File: [src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.manifest.json](src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.manifest.json)
+File: [src\webparts\helloWorld\HelloWorldWebPart.manifest.json](src\webparts\helloWorld\HelloWorldWebPart.manifest.json)
+
+### FN011011 Web part manifest supportedHosts | Required
+
+Update the supportedHosts property in the manifest
+
+In file [src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json](src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json) update the code as follows:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
+File: [src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json](src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json)
+
+### FN011011 Web part manifest supportedHosts | Required
+
+Update the supportedHosts property in the manifest
+
+In file [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.manifest.json](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.manifest.json) update the code as follows:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
+File: [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.manifest.json](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.manifest.json)
 
 ### FN012014 tsconfig.json compiler options inlineSources | Required
 
@@ -350,10 +402,34 @@ Create Microsoft Teams tab small icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\b961ace2-d01c-4fbf-b7df-76faf3083278_outline.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png
 ```
 
-File: [teams\b961ace2-d01c-4fbf-b7df-76faf3083278_outline.png](teams\b961ace2-d01c-4fbf-b7df-76faf3083278_outline.png)
+File: [teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png](teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png)
+
+### FN018003 Web part Microsoft Teams tab small icon | Optional
+
+Create Microsoft Teams tab small icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png
+```
+
+File: [teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png](teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png)
+
+### FN018003 Web part Microsoft Teams tab small icon | Optional
+
+Create Microsoft Teams tab small icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png
+```
+
+File: [teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png](teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png)
 
 ### FN018004 Web part Microsoft Teams tab large icon | Optional
 
@@ -362,10 +438,34 @@ Create Microsoft Teams tab large icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\b961ace2-d01c-4fbf-b7df-76faf3083278_color.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png
 ```
 
-File: [teams\b961ace2-d01c-4fbf-b7df-76faf3083278_color.png](teams\b961ace2-d01c-4fbf-b7df-76faf3083278_color.png)
+File: [teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png](teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png)
+
+### FN018004 Web part Microsoft Teams tab large icon | Optional
+
+Create Microsoft Teams tab large icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png
+```
+
+File: [teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png](teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png)
+
+### FN018004 Web part Microsoft Teams tab large icon | Optional
+
+Create Microsoft Teams tab large icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png
+```
+
+File: [teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png](teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png)
 
 ### FN006003 package-solution.json isDomainIsolated | Required
 
@@ -460,6 +560,22 @@ In file [./tsconfig.json](./tsconfig.json) update the code as follows:
 
 File: [./tsconfig.json](./tsconfig.json)
 
+### FN010002 .yo-rc.json isCreatingSolution | Recommended
+
+Update isCreatingSolution in .yo-rc.json
+
+In file [./.yo-rc.json](./.yo-rc.json) update the code as follows:
+
+```json
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true
+  }
+}
+```
+
+File: [./.yo-rc.json](./.yo-rc.json)
+
 ### FN017001 Run npm dedupe | Optional
 
 If, after upgrading npm packages, when building the project you have errors similar to: "error TS2345: Argument of type 'SPHttpClientConfiguration' is not assignable to parameter of type 'SPHttpClientConfiguration'", try running 'npm dedupe' to cleanup npm packages.
@@ -481,8 +597,12 @@ npm i -SE @microsoft/sp-core-library@1.10.0 @microsoft/sp-lodash-subset@1.10.0 @
 npm i -DE @microsoft/sp-build-web@1.10.0 @microsoft/sp-module-interfaces@1.10.0 @microsoft/sp-webpart-workbench@1.10.0 @microsoft/sp-tslint-rules@1.10.0 @microsoft/rush-stack-compiler-3.3@0.3.5 tslint-microsoft-contrib@5.0.0
 npm dedupe
 mkdir E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX/teams
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\b961ace2-d01c-4fbf-b7df-76faf3083278_outline.png
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\b961ace2-d01c-4fbf-b7df-76faf3083278_color.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png
+cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png
 ```
 
 ### Modify files
@@ -558,13 +678,29 @@ Update tsconfig.json exclude property:
 }
 ```
 
-#### [src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.ts](src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.ts)
+#### [src\webparts\helloWorld\HelloWorldWebPart.ts](src\webparts\helloWorld\HelloWorldWebPart.ts)
 
 Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package:
 
 ```ts
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import { IPropertyPaneConfiguration, PropertyPaneTextField } from "@microsoft/sp-property-pane";
+```
+
+#### [src\webparts\steuerelemente\SteuerelementeWebPart.ts](src\webparts\steuerelemente\SteuerelementeWebPart.ts)
+
+Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package:
+
+```ts
+import { IPropertyPaneConfiguration, PropertyPaneTextField } from "@microsoft/sp-property-pane";
+```
+
+#### [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts)
+
+Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package:
+
+```ts
+import { IPropertyPaneConfiguration, PropertyPaneTextField, PropertyPaneToggle } from "@microsoft/sp-property-pane";
 ```
 
 #### [./.yo-rc.json](./.yo-rc.json)
@@ -589,6 +725,16 @@ Update isDomainIsolated in .yo-rc.json:
 }
 ```
 
+Update isCreatingSolution in .yo-rc.json:
+
+```json
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true
+  }
+}
+```
+
 #### [./package.json](./package.json)
 
 Add resolution for package @types/react:
@@ -601,7 +747,7 @@ Add resolution for package @types/react:
 }
 ```
 
-#### [src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss](src\webparts\erstesSpfxWebpart\components\ErstesSpfxWebpart.module.scss)
+#### [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts\helloWorld\components\HelloWorld.module.scss)
 
 Remove scss file import:
 
@@ -615,7 +761,27 @@ Add scss file import:
 @import '~office-ui-fabric-react/dist/sass/References.scss'
 ```
 
-#### [src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.manifest.json](src\webparts\erstesSpfxWebpart\ErstesSpfxWebpartWebPart.manifest.json)
+#### [src\webparts\helloWorld\HelloWorldWebPart.manifest.json](src\webparts\helloWorld\HelloWorldWebPart.manifest.json)
+
+Update the supportedHosts property in the manifest:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
+#### [src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json](src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json)
+
+Update the supportedHosts property in the manifest:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
+#### [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.manifest.json](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.manifest.json)
 
 Update the supportedHosts property in the manifest:
 
