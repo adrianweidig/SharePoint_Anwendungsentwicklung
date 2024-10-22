@@ -2,11 +2,9 @@
 
 Dieses Projekt verwendet [React](https://reactjs.org).
 
-> Hier fügen Sie die Dokumentation Ihres Projekts ein.
-
 ## Überblick über die Dateien eines SPFx Webparts am Beispiel von src/webparts/steuerelemente
 
-Bei der Entwicklung eines SharePoint Framework (SPFx) Webparts sind die verschiedenen Dateien, die Sie erwähnt haben, für unterschiedliche Aspekte der Implementierung und Funktionalität des Webparts verantwortlich. Hier ist eine Erklärung zur Verwendung und dem Inhalt jeder Datei:
+Bei der Entwicklung eines SharePoint Framework (SPFx) Webparts sind die verschiedenen Dateien für unterschiedliche Aspekte der Implementierung und Funktionalität des Webparts verantwortlich. Hier ist eine Erklärung zur Verwendung und dem Inhalt jeder Datei:
 
 **ISteuerelementeProps.ts:**
 Beschreibung: Diese Datei definiert die Eigenschaften (Props), die an die React-Komponente übergeben werden. Sie enthält die Schnittstellendefinition für die Eigenschaften, die das Webpart benötigt.
@@ -165,7 +163,7 @@ Laden Sie alle Abhängigkeiten herunter und installieren Sie sie, bauen Sie das 
 # Abhängigkeiten herunterladen und installieren
 npm install
 
-# Transpiliere alle TypeScript & SCSS => JavaScript & CSS
+# Übersetze alle TypeScript & SCSS => JavaScript & CSS
 gulp build
 
 # Erstelle Komponentensbundle & Manifest
