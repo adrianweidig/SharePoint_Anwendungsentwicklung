@@ -193,7 +193,7 @@ nicht mehr in dieser Version.
 
 4. **Trust Developer Certificate:**
     - Registrieren Sie das Entwicklerzertifikat (Sollte gulp nicht funktionieren oder nicht gefunden werden nochmal 'npm
-      install gulp@2.3.0' durchführen):
+      install gulp@3.9.1' durchführen):
 
       ```bash
       gulp trust-dev-cert

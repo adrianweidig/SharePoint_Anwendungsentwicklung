@@ -33,6 +33,22 @@
           "manifest": "./src/webparts/crudPnpSp/CrudPnpSpWebPart.manifest.json"
         }
       ]
+    },
+    "test-webpart-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/testWebpart/TestWebpartWebPart.js",
+          "manifest": "./src/webparts/testWebpart/TestWebpartWebPart.manifest.json"
+        }
+      ]
+    },
+    "test-web-part-to-delete-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/testWebPartToDelete/TestWebPartToDeleteWebPart.js",
+          "manifest": "./src/webparts/testWebPartToDelete/TestWebPartToDeleteWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -41,6 +57,8 @@
     "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
     "SteuerelementeWebPartStrings": "lib/webparts/steuerelemente/loc/{locale}.js",
     "WebparteigenschaftenWebPartStrings": "lib/webparts/webparteigenschaften/loc/{locale}.js",
-    "CrudPnpSpWebPartStrings": "lib/webparts/crudPnpSp/loc/{locale}.js"
+    "CrudPnpSpWebPartStrings": "lib/webparts/crudPnpSp/loc/{locale}.js",
+    "TestWebpartWebPartStrings": "lib/webparts/testWebpart/loc/{locale}.js",
+    "TestWebPartToDeleteWebPartStrings": "lib/webparts/testWebPartToDelete/loc/{locale}.js"
   }
 }

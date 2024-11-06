@@ -6,6 +6,11 @@ npm-debug.log*
 # Dependency directories
 node_modules
 
+# Licsensed modules
+tools/nvm
+tools/node
+
+
 # Build generated files
 dist
 lib
@@ -30,3 +35,8 @@ obj
 
 # Styles Generated Code
 *.scss.ts
+
+# Large archive files
+*.7z
+*.zip
+*.rar

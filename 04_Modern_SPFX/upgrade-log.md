@@ -1,6 +1,6 @@
 # Upgrade project 04_Modern_SPFX to v1.10.0
 
-Date: 2024-8-1
+Date: 2024-11-6
 
 ## Findings
 
@@ -169,6 +169,19 @@ File: [src\webparts\steuerelemente\SteuerelementeWebPart.ts:2:1](src\webparts\st
 
 Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package
 
+In file [src\webparts\testWebpart\TestWebpartWebPart.ts](src\webparts\testWebpart\TestWebpartWebPart.ts) update the code as follows:
+
+```ts
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
+import { IPropertyPaneConfiguration, PropertyPaneTextField } from "@microsoft/sp-property-pane";
+```
+
+File: [src\webparts\testWebpart\TestWebpartWebPart.ts:4:1](src\webparts\testWebpart\TestWebpartWebPart.ts)
+
+### FN016004 Property pane property import change to @microsoft/sp-property-pane | Required
+
+Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package
+
 In file [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts) update the code as follows:
 
 ```ts
@@ -281,6 +294,18 @@ In file [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts
 
 File: [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts\helloWorld\components\HelloWorld.module.scss)
 
+### FN022001 Scss file import | Required
+
+Remove scss file import
+
+In file [src\webparts\testWebpart\components\TestWebpart.module.scss](src\webparts\testWebpart\components\TestWebpart.module.scss) update the code as follows:
+
+```scss
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss'
+```
+
+File: [src\webparts\testWebpart\components\TestWebpart.module.scss](src\webparts\testWebpart\components\TestWebpart.module.scss)
+
 ### FN022002 Scss file import | Optional
 
 Add scss file import
@@ -292,6 +317,32 @@ In file [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts
 ```
 
 File: [src\webparts\helloWorld\components\HelloWorld.module.scss](src\webparts\helloWorld\components\HelloWorld.module.scss)
+
+### FN022002 Scss file import | Optional
+
+Add scss file import
+
+In file [src\webparts\testWebpart\components\TestWebpart.module.scss](src\webparts\testWebpart\components\TestWebpart.module.scss) update the code as follows:
+
+```scss
+@import '~office-ui-fabric-react/dist/sass/References.scss'
+```
+
+File: [src\webparts\testWebpart\components\TestWebpart.module.scss](src\webparts\testWebpart\components\TestWebpart.module.scss)
+
+### FN011011 Web part manifest supportedHosts | Required
+
+Update the supportedHosts property in the manifest
+
+In file [src\webparts\crudPnpSp\CrudPnpSpWebPart.manifest.json](src\webparts\crudPnpSp\CrudPnpSpWebPart.manifest.json) update the code as follows:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
+File: [src\webparts\crudPnpSp\CrudPnpSpWebPart.manifest.json](src\webparts\crudPnpSp\CrudPnpSpWebPart.manifest.json)
 
 ### FN011011 Web part manifest supportedHosts | Required
 
@@ -320,6 +371,20 @@ In file [src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json](src\we
 ```
 
 File: [src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json](src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json)
+
+### FN011011 Web part manifest supportedHosts | Required
+
+Update the supportedHosts property in the manifest
+
+In file [src\webparts\testWebpart\TestWebpartWebPart.manifest.json](src\webparts\testWebpart\TestWebpartWebPart.manifest.json) update the code as follows:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
+File: [src\webparts\testWebpart\TestWebpartWebPart.manifest.json](src\webparts\testWebpart\TestWebpartWebPart.manifest.json)
 
 ### FN011011 Web part manifest supportedHosts | Required
 
@@ -390,7 +455,7 @@ Create folder for Microsoft Teams tab resources
 Execute the following command:
 
 ```sh
-mkdir E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX/teams
+mkdir C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX/teams
 ```
 
 File: [teams](teams)
@@ -402,7 +467,19 @@ Create Microsoft Teams tab small icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\7362bab8-93c0-4b96-a346-80a8cd167f39_outline.png
+```
+
+File: [teams\7362bab8-93c0-4b96-a346-80a8cd167f39_outline.png](teams\7362bab8-93c0-4b96-a346-80a8cd167f39_outline.png)
+
+### FN018003 Web part Microsoft Teams tab small icon | Optional
+
+Create Microsoft Teams tab small icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png
 ```
 
 File: [teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png](teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png)
@@ -414,7 +491,7 @@ Create Microsoft Teams tab small icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png
 ```
 
 File: [teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png](teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png)
@@ -426,7 +503,19 @@ Create Microsoft Teams tab small icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\c315b194-f38e-493f-885e-b03d718e15b1_outline.png
+```
+
+File: [teams\c315b194-f38e-493f-885e-b03d718e15b1_outline.png](teams\c315b194-f38e-493f-885e-b03d718e15b1_outline.png)
+
+### FN018003 Web part Microsoft Teams tab small icon | Optional
+
+Create Microsoft Teams tab small icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png
 ```
 
 File: [teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png](teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png)
@@ -438,7 +527,19 @@ Create Microsoft Teams tab large icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\7362bab8-93c0-4b96-a346-80a8cd167f39_color.png
+```
+
+File: [teams\7362bab8-93c0-4b96-a346-80a8cd167f39_color.png](teams\7362bab8-93c0-4b96-a346-80a8cd167f39_color.png)
+
+### FN018004 Web part Microsoft Teams tab large icon | Optional
+
+Create Microsoft Teams tab large icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png
 ```
 
 File: [teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png](teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png)
@@ -450,7 +551,7 @@ Create Microsoft Teams tab large icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png
 ```
 
 File: [teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png](teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png)
@@ -462,7 +563,19 @@ Create Microsoft Teams tab large icon for the web part
 Execute the following command:
 
 ```sh
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\c315b194-f38e-493f-885e-b03d718e15b1_color.png
+```
+
+File: [teams\c315b194-f38e-493f-885e-b03d718e15b1_color.png](teams\c315b194-f38e-493f-885e-b03d718e15b1_color.png)
+
+### FN018004 Web part Microsoft Teams tab large icon | Optional
+
+Create Microsoft Teams tab large icon for the web part
+
+Execute the following command:
+
+```sh
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png
 ```
 
 File: [teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png](teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png)
@@ -596,13 +709,17 @@ File: [./package.json](./package.json)
 npm i -SE @microsoft/sp-core-library@1.10.0 @microsoft/sp-lodash-subset@1.10.0 @microsoft/sp-office-ui-fabric-core@1.10.0 @microsoft/sp-webpart-base@1.10.0 @microsoft/sp-property-pane@1.10.0 @types/react@16.8.8 @types/react-dom@16.8.3 office-ui-fabric-react@6.189.2 react@16.8.5 react-dom@16.8.5
 npm i -DE @microsoft/sp-build-web@1.10.0 @microsoft/sp-module-interfaces@1.10.0 @microsoft/sp-webpart-workbench@1.10.0 @microsoft/sp-tslint-rules@1.10.0 @microsoft/rush-stack-compiler-3.3@0.3.5 tslint-microsoft-contrib@5.0.0
 npm dedupe
-mkdir E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX/teams
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png
-cp C:\Program Files\NVM\v8.17.0\node_modules\@pnp\generator-spfx\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png E:\Programmierung\SharePoint\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png
+mkdir C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX/teams
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\7362bab8-93c0-4b96-a346-80a8cd167f39_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\c315b194-f38e-493f-885e-b03d718e15b1_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab20x20.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_outline.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\7362bab8-93c0-4b96-a346-80a8cd167f39_color.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\fb5fbc15-1e55-489e-b32d-ab2436c3a332_color.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\9fe74b73-8573-4c49-b623-97e7408b4364_color.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\c315b194-f38e-493f-885e-b03d718e15b1_color.png
+cp C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\node_modules\@pnp\office365-cli\dist\o365\spfx\commands\project\project-upgrade\assets\tab96x96.png C:\Users\adrian.TOP\Desktop\ProgrammierungAllgemein\GitHub Repos\SharePoint_Anwendungsentwicklung\04_Modern_SPFX\teams\92752db3-bbde-42fc-b435-4f2429bf4ab4_color.png
 ```
 
 ### Modify files
@@ -695,6 +812,15 @@ Refactor the code to import property pane property from the @microsoft/sp-proper
 import { IPropertyPaneConfiguration, PropertyPaneTextField } from "@microsoft/sp-property-pane";
 ```
 
+#### [src\webparts\testWebpart\TestWebpartWebPart.ts](src\webparts\testWebpart\TestWebpartWebPart.ts)
+
+Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package:
+
+```ts
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
+import { IPropertyPaneConfiguration, PropertyPaneTextField } from "@microsoft/sp-property-pane";
+```
+
 #### [src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts](src\webparts\webparteigenschaften\WebparteigenschaftenWebPart.ts)
 
 Refactor the code to import property pane property from the @microsoft/sp-property-pane npm package instead of the @microsoft/sp-webpart-base package:
@@ -761,6 +887,30 @@ Add scss file import:
 @import '~office-ui-fabric-react/dist/sass/References.scss'
 ```
 
+#### [src\webparts\testWebpart\components\TestWebpart.module.scss](src\webparts\testWebpart\components\TestWebpart.module.scss)
+
+Remove scss file import:
+
+```scss
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss'
+```
+
+Add scss file import:
+
+```scss
+@import '~office-ui-fabric-react/dist/sass/References.scss'
+```
+
+#### [src\webparts\crudPnpSp\CrudPnpSpWebPart.manifest.json](src\webparts\crudPnpSp\CrudPnpSpWebPart.manifest.json)
+
+Update the supportedHosts property in the manifest:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
 #### [src\webparts\helloWorld\HelloWorldWebPart.manifest.json](src\webparts\helloWorld\HelloWorldWebPart.manifest.json)
 
 Update the supportedHosts property in the manifest:
@@ -772,6 +922,16 @@ Update the supportedHosts property in the manifest:
 ```
 
 #### [src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json](src\webparts\steuerelemente\SteuerelementeWebPart.manifest.json)
+
+Update the supportedHosts property in the manifest:
+
+```json
+{
+  "supportedHosts": ["SharePointWebPart"]
+}
+```
+
+#### [src\webparts\testWebpart\TestWebpartWebPart.manifest.json](src\webparts\testWebpart\TestWebpartWebPart.manifest.json)
 
 Update the supportedHosts property in the manifest:
 
