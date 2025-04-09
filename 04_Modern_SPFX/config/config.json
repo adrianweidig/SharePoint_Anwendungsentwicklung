@@ -34,31 +34,31 @@
         }
       ]
     },
-    "test-webpart-web-part": {
+    "script-editor-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/testWebpart/TestWebpartWebPart.js",
-          "manifest": "./src/webparts/testWebpart/TestWebpartWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/scriptEditor/ScriptEditorWebPart.js",
+          "manifest": "./src/webparts/scriptEditor/ScriptEditorWebPart.manifest.json"
         }
       ]
     },
-    "test-web-part-to-delete-web-part": {
+    "app-4-gw-script-editor-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/testWebPartToDelete/TestWebPartToDeleteWebPart.js",
-          "manifest": "./src/webparts/testWebPartToDelete/TestWebPartToDeleteWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/app4GwScriptEditor/App4GwScriptEditorWebPart.js",
+          "manifest": "./src/webparts/app4GwScriptEditor/App4GwScriptEditorWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js",
     "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
     "SteuerelementeWebPartStrings": "lib/webparts/steuerelemente/loc/{locale}.js",
     "WebparteigenschaftenWebPartStrings": "lib/webparts/webparteigenschaften/loc/{locale}.js",
     "CrudPnpSpWebPartStrings": "lib/webparts/crudPnpSp/loc/{locale}.js",
-    "TestWebpartWebPartStrings": "lib/webparts/testWebpart/loc/{locale}.js",
-    "TestWebPartToDeleteWebPartStrings": "lib/webparts/testWebPartToDelete/loc/{locale}.js"
+    "ScriptEditorWebPartStrings": "lib/webparts/scriptEditor/loc/{locale}.js",
+    "App4GwScriptEditorWebPartStrings": "lib/webparts/app4GwScriptEditor/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
   }
 }

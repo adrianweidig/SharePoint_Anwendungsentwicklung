@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "5565274a-8b64-4f02-a77c-98e9efa4685a",
+  "alias": "App4GwScriptEditorWebPart",
+  "componentType": "WebPart",
+  "supportsFullBleed": true,
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": { "default": "Other" },
+      "title": { "default": "App4Gw ScriptEditor" },
+      "description": {
+        "default": "Ein Scripteditor für die Moderne Obefläche von SharePoint 2019. Kann CSS, HTML und Javascript in entsprechenden tags ausführen."
+      },
+      "officeFabricIconFontName": "FileCode",
+      "properties": {
+        "script": "",
+        "spPageContextInfo": true
+      }
+    }
+  ]
+}
